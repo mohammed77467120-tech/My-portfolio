@@ -81,6 +81,7 @@ export default function Navbar() {
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
+                gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '12px',
                 border: '1px solid transparent',
@@ -98,6 +99,18 @@ export default function Navbar() {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
+              <img
+                src="/avatar.jpg"
+                alt="MR Logo"
+                style={{
+                  width: '45px',
+                  height: '45px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  border: '1.5px solid var(--primary)',
+                }}
+              />
               <span style={{
                 fontSize: '1.3rem',
                 fontWeight: 900,
@@ -110,7 +123,7 @@ export default function Navbar() {
                 alignItems: 'center',
                 gap: '2px',
               }}>
-                MR<span style={{ WebkitTextFillColor: 'var(--primary)', color: 'var(--primary)' }}>.</span>
+                MR
               </span>
             </motion.a>
 
@@ -272,20 +285,31 @@ export default function Navbar() {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-                <a
-                  href="#home"
-                  onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+                <a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
                   style={{
                     textDecoration: 'none',
                     cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
+                    gap: '8px',
                     padding: '4px 10px',
                     borderRadius: '8px',
                     border: '1px solid rgba(245, 166, 35, 0.2)',
                     background: 'rgba(245, 166, 35, 0.05)',
                   }}
                 >
+                  <img
+                    src="/avatar.jpg"
+                    alt="MR Logo"
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      objectPosition: 'center top',
+                      border: '1.5px solid var(--primary)',
+                    }}
+                  />
                   <span style={{
                     fontSize: '1.2rem',
                     fontWeight: 900,
@@ -295,7 +319,7 @@ export default function Navbar() {
                     backgroundClip: 'text',
                     letterSpacing: '0.5px',
                   }}>
-                    MR<span style={{ WebkitTextFillColor: 'var(--primary)', color: 'var(--primary)' }}>.</span>
+                    MR
                   </span>
                 </a>
                 <button onClick={() => setMenuOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text)' }}>

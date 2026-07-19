@@ -13,11 +13,9 @@ export interface Skill {
 export const skills: Skill[] = [
   // Frontend
   { name: 'React', icon: 'react', level: 90, category: 'frontend', color: '#61DAFB' },
-  { name: 'TypeScript', icon: 'typescript', level: 82, category: 'frontend', color: '#3178C6' },
   { name: 'JavaScript', icon: 'javascript', level: 90, category: 'frontend', color: '#F7DF1E' },
   { name: 'HTML5', icon: 'html5', level: 95, category: 'frontend', color: '#E34F26' },
   { name: 'CSS3', icon: 'css3', level: 92, category: 'frontend', color: '#1572B6' },
-  { name: 'Tailwind CSS', icon: 'tailwind', level: 88, category: 'frontend', color: '#06B6D4' },
   { name: 'Vite', icon: 'vite', level: 85, category: 'frontend', color: '#646CFF' },
 
   // Mobile

@@ -22,12 +22,12 @@ export const profile = {
   about: {
     en: `I'm a Front-End & Mobile Application Developer based in Tarim, Hadhramout, Yemen. With a deep passion for clean code, elegant design, and seamless user experiences, I've dedicated myself to mastering the full spectrum of modern web and mobile development.
 
-My journey began with HTML, CSS, and JavaScript, and has evolved into expertise with React, Flutter, TypeScript, and more. I believe in writing code that not only works but is maintainable, scalable, and a joy to read.
+My journey began with HTML, CSS, and JavaScript, and has evolved into expertise with React, Flutter, and more. I believe in writing code that not only works but is maintainable, scalable, and a joy to read.
 
 I'm always learning, always building, and always striving to push the boundaries of what's possible in web and mobile development.`,
     ar: `أنا مطور واجهات أمامية وتطبيقات جوال مقيم في تريم، حضرموت، اليمن. بشغف عميق بالكود النظيف والتصميم الأنيق وتجارب المستخدم السلسة، كرست نفسي لإتقان الطيف الكامل لتطوير الويب والجوال الحديث.
 
-بدأت رحلتي بـ HTML وCSS وJavaScript، وتطورت إلى خبرة في React وFlutter وTypeScript والمزيد. أؤمن بكتابة كود لا يعمل فحسب، بل قابل للصيانة وقابل للتوسع ومبهج للقراءة.
+بدأت رحلتي بـ HTML وCSS وJavaScript، وتطورت إلى خبرة في React وFlutter والمزيد. أؤمن بكتابة كود لا يعمل فحسب، بل قابل للصيانة وقابل للتوسع ومبهج للقراءة.
 
 أنا دائمًا أتعلم، دائمًا أبني، وأسعى دائمًا لدفع حدود ما هو ممكن في تطوير الويب والجوال.`,
   },

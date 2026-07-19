@@ -58,13 +58,35 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
           >
             <div style={{
-              fontSize: '1.6rem', fontWeight: 900,
-              background: 'var(--gradient-gold)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
               marginBottom: '0.5rem',
-              letterSpacing: '-0.5px',
             }}>
-              MR.
+              <img
+                src="/avatar.jpg"
+                alt="MR Logo"
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  border: '1.5px solid var(--primary)',
+                }}
+              />
+              <span style={{
+                fontSize: '1.6rem',
+                fontWeight: 900,
+                background: 'var(--gradient-gold)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                letterSpacing: '-0.5px',
+                lineHeight: 1,
+              }}>
+                MR
+              </span>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', maxWidth: '220px', lineHeight: 1.7 }}>
               Front-End & Mobile Developer based in Yemen.
