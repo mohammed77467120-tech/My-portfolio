@@ -67,8 +67,8 @@ export default function Footer() {
                 src="/avatar.jpg"
                 alt="MR Logo"
                 style={{
-                  width: '50px',
-                  height: '50px',
+                  width: '36px',
+                  height: '36px',
                   borderRadius: '50%',
                   objectFit: 'cover',
                   objectPosition: 'center top',
