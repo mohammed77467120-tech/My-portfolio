@@ -171,10 +171,10 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    slug: 'expir-flutter',
+    slug: 'mabeaty-flutter',
     title: {
-      en: 'Expir — Product Expiry Tracker',
-      ar: 'Expir — تطبيق تتبع صلاحية المنتجات',
+      en: 'Mabeaty — Product Expiry Tracker',
+      ar: 'مبيعاتي — تطبيق تتبع صلاحية المنتجات',
     },
     subtitle: {
       en: 'Product Expiration Tracking App for Retailers',
