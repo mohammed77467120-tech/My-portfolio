@@ -132,43 +132,67 @@ export default function Navbar() {
             {/* Desktop Nav Links */}
             <nav style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}
               className="hidden-mobile">
-              {navLinks.map((link) => (
-                <motion.button
-                  key={link.key}
-                  onClick={() => handleNavClick(link.href)}
-                  whileHover={{ y: -1 }}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    padding: '0.5rem 0.85rem',
-                    borderRadius: '8px',
-                    fontSize: '0.9rem',
-                    fontWeight: activeSection === link.key ? 600 : 500,
-                    color: activeSection === link.key ? 'var(--primary)' : 'var(--text-muted)',
-                    backgroundColor: activeSection === link.key ? 'rgba(245,166,35,0.08)' : 'transparent',
-                    transition: 'all 0.2s',
-                    position: 'relative',
-                  }}
-                >
-                  {t.nav[link.key as keyof typeof t.nav]}
-                  {activeSection === link.key && (
-                    <motion.div
-                      layoutId="activeNav"
-                      style={{
-                        position: 'absolute',
-                        bottom: 2,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '4px',
-                        height: '4px',
-                        borderRadius: '50%',
-                        background: 'var(--primary)',
-                      }}
-                    />
-                  )}
-                </motion.button>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.key
+                return (
+                  <motion.button
+                    key={link.key}
+                    onClick={() => handleNavClick(link.href)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '0.5rem 0.9rem',
+                      borderRadius: '10px',
+                      fontSize: '0.9rem',
+                      fontWeight: isActive ? 700 : 500,
+                      color: isActive ? 'var(--primary)' : 'var(--text-muted)',
+                      transition: 'color 0.25s ease',
+                      position: 'relative',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavPill"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          borderRadius: '10px',
+                          background: 'linear-gradient(135deg, rgba(245,166,35,0.14), rgba(224,86,160,0.1))',
+                          border: '1px solid rgba(245,166,35,0.3)',
+                          boxShadow: '0 2px 10px rgba(245,166,35,0.15)',
+                          zIndex: 0,
+                        }}
+                      />
+                    )}
+                    <span style={{ position: 'relative', zIndex: 1 }}>
+                      {t.nav[link.key as keyof typeof t.nav]}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavDot"
+                        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '3px',
+                          width: '16px',
+                          height: '2.5px',
+                          borderRadius: '4px',
+                          background: 'var(--gradient-primary)',
+                          boxShadow: '0 0 8px var(--primary)',
+                          zIndex: 1,
+                        }}
+                      />
+                    )}
+                  </motion.button>
+                )
+              })}
             </nav>
 
             {/* Right Controls */}
