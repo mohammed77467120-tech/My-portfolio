@@ -27,16 +27,17 @@ export default function Navbar() {
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY
-    const deltaY = y - lastYRef.current
+    const lastY = lastYRef.current
+    const deltaY = y - lastY
 
     setScrolled(y > 20)
 
-    if (y < 50) {
+    if (y < 80) {
       setVisible(true)
-    } else if (deltaY > 5) {
+    } else if (deltaY < 0) {
+      setVisible(true)
+    } else if (deltaY > 10) {
       setVisible(false)
-    } else if (deltaY < -3) {
-      setVisible(true)
     }
 
     lastYRef.current = y
