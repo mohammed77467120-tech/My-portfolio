@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Moon, Sun, Globe, Menu, X, Download } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext'
@@ -22,25 +22,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
-  const [visible, setVisible] = useState(true)
-  const lastYRef = useRef(0)
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY
-    const lastY = lastYRef.current
-    const deltaY = y - lastY
-
     setScrolled(y > 20)
-
-    if (y < 80) {
-      setVisible(true)
-    } else if (deltaY < 0) {
-      setVisible(true)
-    } else if (deltaY > 10) {
-      setVisible(false)
-    }
-
-    lastYRef.current = y
 
     // Active section detection
     const sections = navLinks.map(l => l.key)
@@ -68,8 +53,8 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={{ y: -80 }}
-        animate={{ y: visible ? 0 : -80 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed top-0 left-0 right-0 z-50"
         style={{
           background: scrolled ? 'var(--nav-bg)' : 'transparent',
