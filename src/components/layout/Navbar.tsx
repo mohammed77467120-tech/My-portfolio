@@ -23,14 +23,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
-  const [visible, setVisible] = useState(true)
-  const [lastY, setLastY] = useState(0)
-
   const handleScroll = useCallback(() => {
     const y = window.scrollY
     setScrolled(y > 20)
-    setVisible(y < lastY || y < 80)
-    setLastY(y)
 
     // Active section detection
     const sections = navLinks.map(l => l.key)
@@ -41,7 +36,7 @@ export default function Navbar() {
         break
       }
     }
-  }, [lastY])
+  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -58,7 +53,7 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={{ y: -80 }}
-        animate={{ y: visible ? 0 : -80 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed top-0 left-0 right-0 z-50"
         style={{
