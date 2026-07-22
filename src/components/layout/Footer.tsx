@@ -4,6 +4,8 @@ import { Heart, Mail, ArrowUp } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
+import { getAssetUrl } from '../../utils/asset'
+
 
 export default function Footer() {
   const { t } = useLang()
@@ -64,7 +66,7 @@ export default function Footer() {
               marginBottom: '0.5rem',
             }}>
               <img
-                src="/avatar.jpg"
+                src={getAssetUrl('/avatar.jpg')}
                 alt="MR Logo"
                 style={{
                   width: '36px',

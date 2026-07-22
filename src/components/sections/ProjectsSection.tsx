@@ -5,6 +5,8 @@ import { GithubIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { projects } from '../../data/projects'
 import ProjectGalleryModal from '../ui/ProjectGalleryModal'
+import { getAssetUrl } from '../../utils/asset'
+
 
 // ─── Project Card ─────────────────────────────────────────
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
@@ -80,7 +82,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         >
           {!imgError && project.coverImage ? (
             <img
-              src={project.coverImage}
+              src={getAssetUrl(project.coverImage)}
               alt={project.title.en}
               onError={() => setImgError(true)}
               style={{
@@ -195,7 +197,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'transparent')}
               >
                 <img
-                  src={src}
+                  src={getAssetUrl(src)}
                   alt={`thumb-${i}`}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   onError={e => { e.currentTarget.style.display = 'none' }}

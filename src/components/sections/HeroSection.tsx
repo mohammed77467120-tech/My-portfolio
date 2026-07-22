@@ -4,6 +4,8 @@ import { Download, ArrowRight, Mail, Phone, ChevronDown } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
+import { getAssetUrl } from '../../utils/asset'
+
 
 // ─── Floating Tech Logos (SVG) ───────────────────────────
 const techLogos = [
@@ -430,7 +432,7 @@ export default function HeroSection() {
                 }}
               >
                 <img
-                  src="/avatar.jpg"
+                  src={getAssetUrl('/avatar.jpg')}
                   alt="Mohammed Ramadan"
                   style={{
                     width: '100%', height: '100%',

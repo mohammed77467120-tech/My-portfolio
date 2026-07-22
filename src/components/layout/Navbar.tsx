@@ -4,6 +4,8 @@ import { Moon, Sun, Globe, Menu, X, Download } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
+import { getAssetUrl } from '../../utils/asset'
+
 
 const navLinks = [
   { key: 'home', href: '#home' },
@@ -100,7 +102,7 @@ export default function Navbar() {
               }}
             >
               <img
-                src="/avatar.jpg"
+                src={getAssetUrl('/avatar.jpg')}
                 alt="MR Logo"
                 style={{
                   width: '45px',
@@ -299,7 +301,7 @@ export default function Navbar() {
                   }}
                 >
                   <img
-                    src="/avatar.jpg"
+                    src={getAssetUrl('/avatar.jpg')}
                     alt="MR Logo"
                     style={{
                       width: '24px',

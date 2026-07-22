@@ -7,6 +7,8 @@ import {
 import { GithubIcon } from './BrandIcons'
 import { useLang } from '../../context/LangContext'
 import type { Project } from '../../data/projects'
+import { getAssetUrl } from '../../utils/asset'
+
 
 // ─── Types ────────────────────────────────────────────────
 interface ProjectGalleryModalProps {
@@ -279,7 +281,7 @@ export default function ProjectGalleryModal({
                       >
                         {!imgError ? (
                           <img
-                            src={project.screenshots[currentIdx]}
+                            src={getAssetUrl(project.screenshots[currentIdx])}
                             alt={descTitle || `Screen ${currentIdx + 1}`}
                             onLoad={() => setImgLoaded(true)}
                             onError={() => setImgError(true)}
@@ -416,7 +418,7 @@ export default function ProjectGalleryModal({
                         }}
                       >
                         <img
-                          src={src}
+                          src={getAssetUrl(src)}
                           alt={`thumb-${i}`}
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                           onError={e => { e.currentTarget.style.display = 'none' }}
