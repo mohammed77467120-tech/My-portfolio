@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Send, Copy, Check } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Copy, Check, MessageSquare } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
@@ -13,315 +13,288 @@ function CopyButton({ text }: { text: string }) {
     setTimeout(() => setCopied(false), 2000)
   }
   return (
-    <motion.button
+    <button
       onClick={copy}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
       style={{
-        background: 'none', border: 'none', cursor: 'pointer',
+        background: 'none',
+        border: 'none',
+        cursor: 'pointer',
         color: copied ? '#22C55E' : 'var(--text-muted)',
-        display: 'flex', alignItems: 'center',
-        padding: '4px', borderRadius: '6px',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '4px',
         transition: 'color 0.2s',
       }}
     >
       {copied ? <Check size={14} /> : <Copy size={14} />}
-    </motion.button>
+    </button>
   )
 }
 
 export default function ContactSection() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-60px' })
 
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    // Simulate send (replace with EmailJS)
-    await new Promise(r => setTimeout(r, 1500))
+    await new Promise((r) => setTimeout(r, 1200))
     setStatus('success')
     setFormData({ name: '', email: '', subject: '', message: '' })
     setTimeout(() => setStatus('idle'), 4000)
   }
 
-  const contactItems = [
-    {
-      icon: Mail,
-      label: t.contact.emailLabel,
-      value: profile.email,
-      href: `mailto:${profile.email}`,
-      color: '#F5A623',
-      copyable: true,
-    },
-    {
-      icon: Phone,
-      label: t.contact.phone,
-      value: profile.phone,
-      href: `tel:${profile.phone}`,
-      color: '#22C55E',
-      copyable: true,
-    },
-    {
-      icon: MapPin,
-      label: t.contact.location,
-      value: 'Tarim, Hadhramout, Yemen',
-      href: null,
-      color: '#EF4444',
-      copyable: false,
-    },
-    {
-      icon: MessageCircle,
-      label: 'WhatsApp',
-      value: profile.phone,
-      href: profile.whatsapp,
-      color: '#25D366',
-      copyable: false,
-    },
-    {
-      icon: GithubIcon,
-      label: 'GitHub',
-      value: 'mohammed77467120-tech',
-      href: profile.github,
-      color: '#333',
-      copyable: false,
-    },
-    {
-      icon: LinkedinIcon,
-      label: 'LinkedIn',
-      value: 'mohammed-abdhood',
-      href: profile.linkedin,
-      color: '#0A66C2',
-      copyable: false,
-    },
-    {
-      icon: InstagramIcon,
-      label: 'Instagram',
-      value: 'm2_k11',
-      href: profile.instagram,
-      color: '#E1306C',
-      copyable: false,
-    },
+  const socials = [
+    { icon: GithubIcon, href: profile.github, label: 'GitHub' },
+    { icon: LinkedinIcon, href: profile.linkedin, label: 'LinkedIn' },
+    { icon: InstagramIcon, href: profile.instagram, label: 'Instagram' },
+    { icon: Mail, href: `mailto:${profile.email}`, label: 'Email' },
   ]
 
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '14px 16px',
+    borderRadius: '12px',
+    border: '1px solid var(--border-strong)',
+    background: 'var(--bg-card)',
+    color: 'var(--text-primary)',
+    fontSize: '0.9rem',
+    fontFamily: 'var(--font-body)',
+    outline: 'none',
+    backdropFilter: 'blur(12px)',
+    transition: 'border-color 0.3s',
+  }
+
   return (
-    <section id="contact" className="section-padding" style={{ background: 'var(--bg-card)' }}>
-      <div className="container-custom">
-        {/* Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '3.5rem' }}
-        >
-          <span style={{
-            fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px',
-            textTransform: 'uppercase', color: 'var(--primary)',
-          }}>
-            {t.contact.subtitle}
-          </span>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800,
-            color: 'var(--text)', marginTop: '0.5rem', letterSpacing: '-0.5px',
-          }}>
-            {t.contact.title}
-          </h2>
-          <div style={{
-            width: '60px', height: '3px', borderRadius: '2px',
-            background: 'var(--gradient-primary)',
-            margin: '1rem auto 0',
-          }} />
-        </motion.div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.4fr',
-          gap: '3rem',
-          alignItems: 'start',
-        }} className="contact-grid">
-
-          {/* Left — Contact Info */}
+    <section id="contact" className="section" style={{ padding: '6rem 0' }}>
+      <div className="container" ref={ref}>
+        {/* Section Header */}
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              color: 'var(--copper)',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              marginBottom: '0.75rem',
+            }}
+          >
+            <MessageSquare size={16} />
+            <span>{t.contact.subtitle}</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            style={{
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              fontWeight: 800,
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-heading)',
+              margin: 0,
+            }}
+          >
+            {t.contact.title}
+          </motion.h2>
+        </div>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '3rem',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left Column: Contact Methods */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p style={{
-              color: 'var(--text-muted)', lineHeight: 1.8,
-              marginBottom: '2rem', fontSize: '1rem',
-            }}>
-              I'm always open to new opportunities, collaborations, and interesting projects. Feel free to reach out through any of the following channels.
-            </p>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {contactItems.map(({ icon: Icon, label, value, href, color, copyable }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.08 }}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
+              {[
+                {
+                  icon: Mail,
+                  label: t.contact.emailLabel,
+                  value: profile.email,
+                  href: `mailto:${profile.email}`,
+                  copyable: true,
+                },
+                {
+                  icon: Phone,
+                  label: t.contact.phone,
+                  value: profile.phone,
+                  href: `tel:${profile.phone}`,
+                  copyable: true,
+                },
+                {
+                  icon: MapPin,
+                  label: t.contact.location,
+                  value: profile.location[lang as 'en' | 'ar'],
+                  href: undefined,
+                  copyable: false,
+                },
+              ].map((item) => (
+                <div
+                  key={item.label}
                   style={{
-                    display: 'flex', alignItems: 'center', gap: '12px',
-                    padding: '14px 16px', borderRadius: '14px',
-                    background: 'var(--bg)', border: '1px solid var(--border)',
-                    transition: 'all 0.2s',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = color + '40'
-                    e.currentTarget.style.boxShadow = `0 4px 20px ${color}15`
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'var(--border)'
-                    e.currentTarget.style.boxShadow = 'none'
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '14px',
+                    padding: '1.25rem',
+                    borderRadius: '16px',
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-strong)',
+                    backdropFilter: 'blur(12px)',
+                    boxShadow: 'var(--shadow-sm)',
                   }}
                 >
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '12px',
-                    background: color + '15',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0,
-                  }}>
-                    <Icon size={18} color={color} />
+                  <div
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: '12px',
+                      background: 'var(--copper-subtle)',
+                      border: '1px solid var(--copper)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--copper)',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <item.icon size={18} />
                   </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500 }}>{label}</div>
-                    {href ? (
-                      <a href={href} target="_blank" rel="noopener noreferrer"
-                        style={{
-                          fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)',
-                          textDecoration: 'none', display: 'block',
-                          overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                        }}
-                      >
-                        {value}
-                      </a>
-                    ) : (
-                      <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>{value}</span>
-                    )}
+                  <div style={{ flex: 1 }}>
+                    <div
+                      style={{
+                        fontSize: '0.75rem',
+                        color: 'var(--text-muted)',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        marginBottom: '2px',
+                      }}
+                    >
+                      {item.label}
+                    </div>
+                    <div style={{ fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 600 }}>
+                      {item.href ? (
+                        <a href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          {item.value}
+                        </a>
+                      ) : (
+                        item.value
+                      )}
+                    </div>
                   </div>
-                  {copyable && <CopyButton text={value} />}
-                </motion.div>
+                  {item.copyable && <CopyButton text={item.value} />}
+                </div>
+              ))}
+            </div>
+
+            {/* Social Icons */}
+            <div style={{ display: 'flex', gap: '12px' }}>
+              {socials.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={label}
+                  className="btn-icon"
+                  style={{ width: 46, height: 46 }}
+                >
+                  <Icon size={18} />
+                </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Right — Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+          {/* Right Column: Interactive Form */}
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
+            onSubmit={handleSubmit}
             style={{
-              background: 'var(--bg)', borderRadius: '20px',
-              padding: '2rem', border: '1px solid var(--border)',
-              boxShadow: 'var(--shadow)',
+              padding: '2rem',
+              borderRadius: '24px',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-strong)',
+              backdropFilter: 'blur(16px)',
+              boxShadow: 'var(--shadow-md)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.25rem',
             }}
           >
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              {[
-                { key: 'name', label: t.contact.name, type: 'text' },
-                { key: 'email', label: t.contact.email, type: 'email' },
-                { key: 'subject', label: t.contact.subject, type: 'text' },
-              ].map(({ key, label, type }) => (
-                <div key={key}>
-                  <label style={{
-                    display: 'block', fontSize: '0.875rem',
-                    fontWeight: 600, color: 'var(--text)', marginBottom: '6px',
-                  }}>
-                    {label}
-                  </label>
-                  <input
-                    type={type}
-                    required
-                    value={formData[key as keyof typeof formData]}
-                    onChange={e => setFormData(prev => ({ ...prev, [key]: e.target.value }))}
-                    style={{
-                      width: '100%', padding: '12px 16px',
-                      borderRadius: '12px',
-                      border: '1px solid var(--border)',
-                      background: 'var(--bg-card)',
-                      color: 'var(--text)', fontSize: '0.95rem',
-                      outline: 'none', transition: 'border-color 0.2s',
-                      boxSizing: 'border-box',
-                    }}
-                    onFocus={e => (e.target.style.borderColor = 'var(--primary)')}
-                    onBlur={e => (e.target.style.borderColor = 'var(--border)')}
-                  />
-                </div>
-              ))}
-
-              <div>
-                <label style={{
-                  display: 'block', fontSize: '0.875rem',
-                  fontWeight: 600, color: 'var(--text)', marginBottom: '6px',
-                }}>
-                  {t.contact.message}
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  style={{
-                    width: '100%', padding: '12px 16px',
-                    borderRadius: '12px',
-                    border: '1px solid var(--border)',
-                    background: 'var(--bg-card)',
-                    color: 'var(--text)', fontSize: '0.95rem',
-                    outline: 'none', resize: 'vertical',
-                    transition: 'border-color 0.2s',
-                    boxSizing: 'border-box',
-                    fontFamily: 'inherit',
-                  }}
-                  onFocus={e => (e.target.style.borderColor = 'var(--primary)')}
-                  onBlur={e => (e.target.style.borderColor = 'var(--border)')}
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={status === 'sending'}
-                whileHover={status === 'idle' ? { scale: 1.02 } : {}}
-                whileTap={status === 'idle' ? { scale: 0.98 } : {}}
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  gap: '8px', padding: '14px 28px', borderRadius: '12px',
-                  border: 'none', cursor: status === 'sending' ? 'not-allowed' : 'pointer',
-                  fontWeight: 700, fontSize: '1rem',
-                  background: status === 'success'
-                    ? 'linear-gradient(135deg, #22C55E, #16a34a)'
-                    : status === 'error'
-                    ? 'linear-gradient(135deg, #EF4444, #dc2626)'
-                    : 'var(--gradient-hero)',
-                  color: 'white',
-                  boxShadow: '0 4px 24px rgba(245,166,35,0.3)',
-                  opacity: status === 'sending' ? 0.7 : 1,
-                  transition: 'background 0.3s',
-                }}
-              >
-                {status === 'sending' ? (
-                  <>{t.contact.sending}</>
-                ) : status === 'success' ? (
-                  <>{t.contact.success}</>
-                ) : status === 'error' ? (
-                  <>{t.contact.error}</>
-                ) : (
-                  <><Send size={18} /> {t.contact.send}</>
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <input
+                type="text"
+                placeholder={t.contact.name}
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                style={inputStyle}
+              />
+              <input
+                type="email"
+                placeholder={t.contact.email}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                style={inputStyle}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder={t.contact.subject}
+              value={formData.subject}
+              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              style={inputStyle}
+            />
+            <textarea
+              placeholder={t.contact.message}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
+              rows={5}
+              style={{ ...inputStyle, resize: 'vertical' }}
+            />
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="btn btn-primary"
+              style={{ width: '100%', padding: '14px 28px' }}
+            >
+              <Send size={16} />
+              <span>
+                {status === 'sending'
+                  ? t.contact.sending
+                  : status === 'success'
+                  ? t.contact.success
+                  : t.contact.send}
+              </span>
+            </button>
+          </motion.form>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   )
 }

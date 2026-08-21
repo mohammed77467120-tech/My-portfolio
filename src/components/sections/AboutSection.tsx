@@ -1,220 +1,193 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { MapPin, Mail, Phone } from 'lucide-react'
+import { MapPin, Mail, Phone, UserCheck, GraduationCap } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
 import { getAssetUrl } from '../../utils/asset'
 
-
-function StatCard({ value, label, delay }: { value: number; label: string; delay: number }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay, duration: 0.5 }}
-      style={{
-        background: 'var(--bg-card)', borderRadius: '16px',
-        padding: '1.5rem', textAlign: 'center',
-        border: '1px solid var(--border)', boxShadow: 'var(--shadow)',
-      }}
-    >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ delay: delay + 0.2, duration: 0.5 }}
-        style={{
-          fontSize: '2.5rem', fontWeight: 900,
-          background: 'var(--gradient-primary)',
-          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-        }}
-      >
-        {value}+
-      </motion.div>
-      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500, marginTop: '4px' }}>
-        {label}
-      </div>
-    </motion.div>
-  )
-}
-
 export default function AboutSection() {
   const { t, lang } = useLang()
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  const stats = [
-    { value: profile.stats.yearsLearning, label: t.about.yearsLearning },
-    { value: profile.stats.projects, label: t.about.projects },
-    { value: profile.stats.certificates, label: t.about.certificates },
-    { value: profile.stats.technologies, label: t.about.technologies },
-  ]
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const isAr = lang === 'ar'
 
   const links = [
-    { icon: MapPin, text: profile.location[lang as 'en' | 'ar'], href: null },
+    { icon: MapPin, text: profile.location[lang as 'en' | 'ar'], href: undefined },
     { icon: Mail, text: profile.email, href: `mailto:${profile.email}` },
     { icon: Phone, text: profile.phone, href: `tel:${profile.phone}` },
-    { icon: GithubIcon, text: 'GitHub', href: profile.github },
-    { icon: LinkedinIcon, text: 'LinkedIn', href: profile.linkedin },
+    { icon: GithubIcon, text: 'GitHub Profile', href: profile.github },
+    { icon: LinkedinIcon, text: 'LinkedIn Profile', href: profile.linkedin },
     { icon: InstagramIcon, text: 'Instagram', href: profile.instagram },
   ]
 
   return (
-    <section id="about" className="section-padding" style={{ background: 'var(--bg)' }}>
-      <div className="container-custom">
-        {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
+    <section id="about" className="section" style={{ padding: '6rem 0' }}>
+      <div className="container" ref={ref}>
+        {/* Two-column layout */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '3.5rem',
+            alignItems: 'center',
+          }}
         >
-          <span style={{
-            fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px',
-            textTransform: 'uppercase', color: 'var(--primary)',
-          }}>
-            {t.about.subtitle}
-          </span>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800,
-            color: 'var(--text)', marginTop: '0.5rem', letterSpacing: '-0.5px',
-          }}>
-            {t.about.title}
-          </h2>
-          <div style={{
-            width: '60px', height: '3px', borderRadius: '2px',
-            background: 'var(--gradient-primary)',
-            margin: '1rem auto 0',
-          }} />
-        </motion.div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '4rem',
-          alignItems: 'start',
-        }} className="about-grid">
-
-          {/* Left — Avatar & Info */}
+          {/* Left Column: Glass Image Box - Perfectly Centered Image */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: isAr ? 30 : -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7 }}
           >
-          {/* Avatar */}
-            <div style={{
-              width: '100%', maxWidth: '400px', aspectRatio: '1',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              border: '3px solid transparent',
-              backgroundImage: 'linear-gradient(var(--bg-card), var(--bg-card)), var(--gradient-primary)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box',
-              marginBottom: '2rem',
-              boxShadow: 'var(--shadow)',
-              position: 'relative',
-            }}>
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '24px',
+                padding: '12px',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-strong)',
+                backdropFilter: 'blur(16px)',
+                boxShadow: 'var(--shadow-lg)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+              }}
+            >
               <img
-                src={getAssetUrl('/avatar.jpg')}
-                alt="Mohammed Ramadan"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-                onError={e => {
-                  e.currentTarget.style.display = 'none'
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement
-                  if (fallback) fallback.style.display = 'flex'
+                src={getAssetUrl(profile.avatar)}
+                alt={profile.name[lang as 'en' | 'ar']}
+                style={{
+                  width: '100%',
+                  height: '440px',
+                  objectFit: 'cover',
+                  objectPosition: 'center 20%', // Centers the face in portrait
+                  borderRadius: '16px',
+                  display: 'block',
                 }}
               />
-              <div style={{
-                display: 'none', width: '100%', height: '100%',
-                background: 'linear-gradient(135deg, rgba(245,166,35,0.12), rgba(224,86,160,0.08))',
-                alignItems: 'center', justifyContent: 'center',
-                fontSize: '8rem',
-                position: 'absolute', inset: 0,
-              }}>
-                👨‍💻
-              </div>
-            </div>
 
-            {/* Contact Info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {links.map(({ icon: Icon, text, href }, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.08 }}
-                  style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
-                >
-                  <div style={{
-                    width: '36px', height: '36px', borderRadius: '10px',
-                    background: 'rgba(245,166,35,0.1)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0,
-                  }}>
-                    <Icon size={16} color="var(--primary)" />
-                  </div>
-                  {href ? (
-                    <a href={href} target="_blank" rel="noopener noreferrer" style={{
-                      color: 'var(--text-muted)', textDecoration: 'none',
-                      fontSize: '0.9rem', transition: 'color 0.2s',
-                    }}
-                      onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')}
-                      onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
-                    >
-                      {text}
-                    </a>
-                  ) : (
-                    <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{text}</span>
-                  )}
-                </motion.div>
-              ))}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '24px',
+                  right: isAr ? 'auto' : '24px',
+                  left: isAr ? '24px' : 'auto',
+                  background: 'var(--bg-overlay)',
+                  border: '1px solid var(--copper)',
+                  padding: '8px 16px',
+                  borderRadius: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: 'var(--copper)',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  backdropFilter: 'blur(12px)',
+                  boxShadow: 'var(--shadow-sm)',
+                }}
+              >
+                <GraduationCap size={16} />
+                <span>{isAr ? 'مطور برمجيات موثوق' : 'Software Developer'}</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right — About Text */}
+          {/* Right Column: Detailed Bio & Info with High Contrast Colors */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: isAr ? -30 : 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <h3 style={{
-              fontSize: '1.6rem', fontWeight: 700,
-              color: 'var(--text)', marginBottom: '1.5rem',
-            }}>
-              {profile.title[lang as 'en' | 'ar']}
-            </h3>
-            {profile.about[lang as 'en' | 'ar'].split('\n\n').map((para, i) => (
-              <p key={i} style={{
-                color: 'var(--text-muted)', lineHeight: 1.9,
-                marginBottom: '1rem', fontSize: '1rem',
-              }}>
-                {para}
-              </p>
-            ))}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: 'var(--accent-cyan)',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                marginBottom: '0.75rem',
+              }}
+            >
+              <UserCheck size={16} />
+              <span>{t.about.subtitle}</span>
+            </div>
 
-            {/* Stats Grid */}
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '1rem', marginTop: '2rem',
-            }}>
-              {stats.map((stat, i) => (
-                <StatCard key={i} value={stat.value} label={stat.label} delay={0.5 + i * 0.1} />
-              ))}
+            <h2
+              style={{
+                fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-heading)',
+                margin: '0 0 1.5rem 0',
+              }}
+            >
+              {t.about.title}
+            </h2>
+
+            {/* Paragraphs with crisp contrast in light and dark mode */}
+            <div style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
+              {profile.about[lang as 'en' | 'ar']
+                .split('\n\n')
+                .map((para, i) => (
+                  <p key={i} style={{ marginBottom: '1rem' }}>
+                    {para}
+                  </p>
+                ))}
+            </div>
+
+            {/* Links Grid with High Contrast Cards */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '12px',
+              }}
+            >
+              {links.map(({ icon: Icon, text, href }) => {
+                const content = (
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      padding: '12px 16px',
+                      borderRadius: '14px',
+                      background: 'var(--bg-card)',
+                      border: '1px solid var(--border-strong)',
+                      color: 'var(--text-primary)',
+                      fontSize: '0.88rem',
+                      fontWeight: 600,
+                      transition: 'all 0.2s ease',
+                      boxShadow: 'var(--shadow-sm)',
+                    }}
+                  >
+                    <Icon size={16} color="var(--copper)" />
+                    <span>{text}</span>
+                  </div>
+                )
+
+                if (href) {
+                  return (
+                    <a
+                      key={text}
+                      href={href}
+                      target={href.startsWith('http') ? '_blank' : undefined}
+                      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      {content}
+                    </a>
+                  )
+                }
+                return <div key={text}>{content}</div>
+              })}
             </div>
           </motion.div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-        }
-      `}</style>
     </section>
   )
 }

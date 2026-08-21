@@ -1,50 +1,140 @@
 // ============================================================
-// SKILLS DATA
+// SKILLS DATA — Clean Tech Stack (No Arbitrary Ratings)
 // ============================================================
 
 export interface Skill {
   name: string
   icon: string
-  level: number // 0-100
-  category: 'frontend' | 'mobile' | 'backend' | 'database' | 'tools' | 'engineering' | 'networking' | 'cybersecurity'
+  category: 'frontend' | 'mobile' | 'backend' | 'database' | 'tools'
   color: string
+  tagline: {
+    en: string
+    ar: string
+  }
 }
 
 export const skills: Skill[] = [
   // Frontend
-  { name: 'React', icon: 'react', level: 90, category: 'frontend', color: '#61DAFB' },
-  { name: 'JavaScript', icon: 'javascript', level: 90, category: 'frontend', color: '#F7DF1E' },
-  { name: 'HTML5', icon: 'html5', level: 95, category: 'frontend', color: '#E34F26' },
-  { name: 'CSS3', icon: 'css3', level: 92, category: 'frontend', color: '#1572B6' },
-  { name: 'Vite', icon: 'vite', level: 85, category: 'frontend', color: '#646CFF' },
+  {
+    name: 'React',
+    icon: 'react',
+    category: 'frontend',
+    color: '#61DAFB',
+    tagline: { en: 'SPA Architecture & Custom Hooks', ar: 'تطبيقات أحادية الصفحة وHooks مخصصة' },
+  },
+  {
+    name: 'JavaScript (ES6+)',
+    icon: 'javascript',
+    category: 'frontend',
+    color: '#F7DF1E',
+    tagline: { en: 'Async Logic & DOM Manipulation', ar: 'المنطق البرمجي والتعامل مع DOM' },
+  },
+  {
+    name: 'HTML5 & CSS3',
+    icon: 'html5',
+    category: 'frontend',
+    color: '#E34F26',
+    tagline: { en: 'Semantic Layouts & Modern Styling', ar: 'هيكلة دلالية وتصميمات معاصرة' },
+  },
+  {
+    name: 'Vite',
+    icon: 'vite',
+    category: 'frontend',
+    color: '#646CFF',
+    tagline: { en: 'Lightning Fast Tooling & Bundling', ar: 'أدوات بناء وتجميع فائقة السرعة' },
+  },
 
   // Mobile
-  { name: 'Flutter', icon: 'flutter', level: 85, category: 'mobile', color: '#02569B' },
-  { name: 'Dart', icon: 'dart', level: 83, category: 'mobile', color: '#0175C2' },
+  {
+    name: 'Flutter',
+    icon: 'flutter',
+    category: 'mobile',
+    color: '#02569B',
+    tagline: { en: 'Cross-Platform Android & iOS Apps', ar: 'تطبيقات جوال مشتركة للأندرويد وiOS' },
+  },
+  {
+    name: 'Dart',
+    icon: 'dart',
+    category: 'mobile',
+    color: '#0175C2',
+    tagline: { en: 'Object-Oriented Mobile Core', ar: 'برمجة كائنية لتطبيقات الجوال' },
+  },
 
   // Backend
-  { name: 'PHP', icon: 'php', level: 70, category: 'backend', color: '#777BB4' },
-  { name: 'Laravel', icon: 'laravel', level: 68, category: 'backend', color: '#FF2D20' },
-  { name: 'REST API', icon: 'api', level: 80, category: 'backend', color: '#06B6D4' },
+  {
+    name: 'RESTful APIs',
+    icon: 'api',
+    category: 'backend',
+    color: '#06B6D4',
+    tagline: { en: 'JSON Endpoints & Client Integration', ar: 'ربط واجهات البرمجية وتكامل البيانات' },
+  },
+  {
+    name: 'PHP',
+    icon: 'php',
+    category: 'backend',
+    color: '#777BB4',
+    tagline: { en: 'Server Scripting & Web Services', ar: 'سكربتات الخادم والخدمات البرمجية' },
+  },
+  {
+    name: 'Laravel',
+    icon: 'laravel',
+    category: 'backend',
+    color: '#FF2D20',
+    tagline: { en: 'MVC Web Framework', ar: 'إطار عمل MVC م ميز للويب' },
+  },
 
   // Database
-  { name: 'MySQL', icon: 'mysql', level: 75, category: 'database', color: '#4479A1' },
-  { name: 'SQL Server', icon: 'mssql', level: 70, category: 'database', color: '#CC2927' },
-  { name: 'Firebase', icon: 'firebase', level: 78, category: 'database', color: '#FFCA28' },
-  { name: 'Oracle', icon: 'oracle', level: 60, category: 'database', color: '#F80000' },
+  {
+    name: 'MySQL',
+    icon: 'mysql',
+    category: 'database',
+    color: '#4479A1',
+    tagline: { en: 'Relational Schema Design & Queries', ar: 'تصميم الجداول والاستعلامات العلاقاتية' },
+  },
+  {
+    name: 'Firebase',
+    icon: 'firebase',
+    category: 'database',
+    color: '#FFCA28',
+    tagline: { en: 'Realtime Database & Authentication', ar: 'قواعد بيانات فورية والمصادقة' },
+  },
+  {
+    name: 'SQL Server',
+    icon: 'mssql',
+    category: 'database',
+    color: '#CC2927',
+    tagline: { en: 'Enterprise Database Systems', ar: 'أنظمة قواعد البيانات للمؤسسات' },
+  },
 
   // Tools
-  { name: 'Git', icon: 'git', level: 85, category: 'tools', color: '#F05032' },
-  { name: 'GitHub', icon: 'github', level: 88, category: 'tools', color: '#181717' },
-  { name: 'VS Code', icon: 'vscode', level: 95, category: 'tools', color: '#007ACC' },
-  { name: 'Figma', icon: 'figma', level: 72, category: 'tools', color: '#F24E1E' },
+  {
+    name: 'Git & GitHub',
+    icon: 'github',
+    category: 'tools',
+    color: '#F05032',
+    tagline: { en: 'Version Control & Workflow', ar: 'إدارة النسخ والعمل الجماعي' },
+  },
+  {
+    name: 'VS Code',
+    icon: 'vscode',
+    category: 'tools',
+    color: '#007ACC',
+    tagline: { en: 'Primary Engineering Workspace', ar: 'بيئة التطوير والبرمجة الرئيسية' },
+  },
+  {
+    name: 'Figma',
+    icon: 'figma',
+    category: 'tools',
+    color: '#F24E1E',
+    tagline: { en: 'UI/UX Prototyping & Inspection', ar: 'تحويل التصاميم إلى كود تفاعلي' },
+  },
 ]
 
 export const skillCategories = [
-  { key: 'all', label: { en: 'All', ar: 'الكل' } },
-  { key: 'frontend', label: { en: 'Frontend', ar: 'واجهات أمامية' } },
-  { key: 'mobile', label: { en: 'Mobile', ar: 'تطبيقات جوال' } },
-  { key: 'backend', label: { en: 'Backend', ar: 'خلفية' } },
-  { key: 'database', label: { en: 'Databases', ar: 'قواعد بيانات' } },
-  { key: 'tools', label: { en: 'Tools', ar: 'أدوات' } },
+  { key: 'all', label: { en: 'All Skills', ar: 'كل المهارات' } },
+  { key: 'frontend', label: { en: 'Front-End', ar: 'الواجهات الأمامية' } },
+  { key: 'mobile', label: { en: 'Mobile Apps', ar: 'تطبيقات الجوال' } },
+  { key: 'backend', label: { en: 'Backend', ar: 'الأنظمة الخلفية' } },
+  { key: 'database', label: { en: 'Databases', ar: 'قواعد البيانات' } },
+  { key: 'tools', label: { en: 'Tools & Workflow', ar: 'الأدوات والعمليات' } },
 ]

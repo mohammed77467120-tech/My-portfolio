@@ -38,7 +38,7 @@ I'm always learning, always building, and always striving to push the boundaries
   linkedin: 'https://linkedin.com/in/mohammed-abdhood-5192123a4',
   whatsapp: 'https://wa.me/967774657120',
   instagram: 'https://instagram.com/m2_k11',
-  avatar: '/avatar.jpg',
+  avatar: '/pro.png',
   resume: '/resume.pdf',
   stats: {
     yearsLearning: 3,

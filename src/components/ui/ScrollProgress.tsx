@@ -23,10 +23,9 @@ export default function ScrollProgress() {
         style={{
           height: '100%',
           width: `${progress}%`,
-          background: 'linear-gradient(90deg, #F5A623, #E056A0, #3ECFCF)',
-          backgroundSize: '200% 100%',
+          background: 'var(--copper)',
           transformOrigin: 'left',
-          boxShadow: '0 0 8px rgba(245,166,35,0.5)',
+          boxShadow: '0 0 8px var(--copper-glow)',
         }}
       />
     </div>

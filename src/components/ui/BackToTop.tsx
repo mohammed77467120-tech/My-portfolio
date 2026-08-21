@@ -24,12 +24,12 @@ export default function BackToTop() {
           aria-label="Back to top"
           style={{
             position: 'fixed', bottom: '2rem', right: '2rem',
-            width: '48px', height: '48px', borderRadius: '14px',
-            border: 'none', cursor: 'pointer',
-            background: 'linear-gradient(135deg, #F5A623, #E056A0)',
+            width: '42px', height: '42px', borderRadius: '4px',
+            border: '1px solid var(--copper)', cursor: 'pointer',
+            background: 'var(--copper)',
             color: 'white', zIndex: 999,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 8px 28px rgba(245,166,35,0.45)',
+            boxShadow: '0 8px 28px var(--copper-glow)',
           }}
         >
           <ArrowUp size={20} />
