@@ -305,49 +305,49 @@ export default function D3SkillsGraph({
       </div>
 
       {/* D3 Canvas Container (Matching Unified Box System) */}
-      <div
-        ref={containerRef}
-        style={{
-          width: '100%',
-          height: '480px',
-          borderRadius: '24px',
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border-strong)',
-          backdropFilter: 'blur(16px)',
-          boxShadow: 'var(--shadow-md)',
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
-        <svg ref={svgRef} style={{ width: '100%', height: '100%' }} />
-
-        {/* Floating Hint Legend */}
         <div
+          ref={containerRef}
           style={{
-            position: 'absolute',
-            bottom: '16px',
-            left: isAr ? 'auto' : '16px',
-            right: isAr ? '16px' : 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            fontSize: '0.78rem',
-            color: 'var(--text-muted)',
-            background: 'var(--bg-overlay)',
-            padding: '8px 16px',
-            borderRadius: '100px',
+            width: '100%',
+            height: 'clamp(360px, 45vh, 480px)',
+            borderRadius: '24px',
+            background: 'var(--bg-card)',
             border: '1px solid var(--border-strong)',
-            pointerEvents: 'none',
+            backdropFilter: 'blur(16px)',
+            boxShadow: 'var(--shadow-md)',
+            overflow: 'hidden',
+            position: 'relative',
           }}
         >
-          <Sparkles size={14} color="var(--copper)" />
-          <span>
-            {isAr
-              ? 'انقر واسحب العقد التفاعلية (D3 Force Graph) للاستكشاف واللعب بها بحرية'
-              : 'Click & drag D3 nodes freely to play with tech connections'}
-          </span>
+          <svg ref={svgRef} style={{ width: '100%', height: '100%' }} />
+
+          {/* Floating Hint Legend */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '14px',
+              insetInlineStart: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '0.76rem',
+              color: 'var(--text-muted)',
+              background: 'var(--bg-overlay)',
+              padding: '6px 14px',
+              borderRadius: '100px',
+              border: '1px solid var(--border-strong)',
+              pointerEvents: 'none',
+              maxWidth: 'calc(100% - 28px)',
+            }}
+          >
+            <Sparkles size={13} color="var(--copper)" />
+            <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {isAr
+                ? 'انقر واسحب العقد التفاعلية للاستكشاف بحرية'
+                : 'Click & drag D3 nodes freely to explore'}
+            </span>
+          </div>
         </div>
-      </div>
 
       {/* Selected Skill Detail Glass Card */}
       {selectedSkill && (

@@ -21,7 +21,7 @@ export default function Footer() {
     <footer
       style={{
         position: 'relative',
-        paddingTop: '4rem',
+        paddingTop: '3.5rem',
         paddingBottom: '2rem',
         borderTop: '1px solid var(--border)',
         background: 'var(--bg-secondary)',
@@ -42,24 +42,23 @@ export default function Footer() {
 
       <div className="container">
         {/* Top row: Brand + Tagline */}
-        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             style={{
-              fontSize: '1.8rem',
+              fontSize: '1.6rem',
               fontWeight: 800,
               fontFamily: 'var(--font-heading)',
               color: 'var(--copper)',
-              letterSpacing: '-0.02em',
-              marginBottom: '0.4rem',
+              marginBottom: '0.3rem',
             }}
           >
             {profile.name[lang as 'en' | 'ar']}
           </motion.div>
-          <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-            {isAr ? 'مطور تطبيقات الويب والجوال' : 'Front-End & Mobile Developer'}
+          <div style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+            {isAr ? 'مطور تطبيقات الويب والجوال' : 'Front-End & Mobile Application Developer'}
           </div>
           <div
             style={{
@@ -67,7 +66,7 @@ export default function Footer() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '6px',
-              marginTop: '0.5rem',
+              marginTop: '0.4rem',
               color: 'var(--text-muted)',
               fontSize: '0.82rem',
             }}
@@ -82,56 +81,40 @@ export default function Footer() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '12px',
-            marginBottom: '3rem',
+            gap: '10px',
+            marginBottom: '2.5rem',
             flexWrap: 'wrap',
           }}
         >
           {socials.map((s) => {
             const Icon = s.icon
             return (
-              <motion.a
+              <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 title={s.label}
-                whileHover={{ y: -4, scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '14px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-strong)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  transition: 'color 0.25s, border-color 0.25s, background 0.25s',
-                  backdropFilter: 'blur(12px)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = s.color
-                  e.currentTarget.style.borderColor = s.color + '60'
-                  e.currentTarget.style.background = s.color + '12'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--text-muted)'
-                  e.currentTarget.style.borderColor = 'var(--border-strong)'
-                  e.currentTarget.style.background = 'var(--bg-card)'
-                }}
+                className="btn-icon"
+                style={{ width: 42, height: 42 }}
               >
                 <Icon size={18} />
-              </motion.a>
+              </a>
             )
           })}
         </div>
 
         {/* Nav Quick Links */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-          {['home', 'about', 'skills', 'experience', 'projects', 'contact'].map((id) => (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 'clamp(1rem, 3vw, 2rem)',
+            flexWrap: 'wrap',
+            marginBottom: '2rem',
+          }}
+        >
+          {['home', 'skills', 'experience', 'projects', 'contact'].map((id) => (
             <button
               key={id}
               onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
@@ -139,20 +122,35 @@ export default function Footer() {
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                color: 'var(--text-muted)',
-                fontSize: '0.82rem',
+                color: 'var(--text-secondary)',
+                fontSize: '0.84rem',
                 fontWeight: 600,
                 fontFamily: 'var(--font-heading)',
                 transition: 'color 0.2s',
                 padding: '4px 0',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--copper)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--copper)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--text-secondary)'
+              }}
             >
               {isAr
-                ? { home: 'الرئيسية', about: 'عني', skills: 'المهارات', experience: 'الخبرة', projects: 'المشاريع', contact: 'تواصل' }[id]
-                : { home: 'Home', about: 'About', skills: 'Skills', experience: 'Experience', projects: 'Projects', contact: 'Contact' }[id]
-              }
+                ? {
+                    home: 'الرئيسية',
+                    skills: 'المهارات',
+                    experience: 'الخبرة',
+                    projects: 'المشاريع',
+                    contact: 'تواصل',
+                  }[id]
+                : {
+                    home: 'Home',
+                    skills: 'Skills',
+                    experience: 'Experience',
+                    projects: 'Projects',
+                    contact: 'Contact',
+                  }[id]}
             </button>
           ))}
         </div>
@@ -178,7 +176,7 @@ export default function Footer() {
             <Code2 size={13} color="var(--accent-cyan)" />
             <span>{isAr ? 'مبني بـ' : 'Built with'}</span>
             <span style={{ color: 'var(--copper)', fontWeight: 700 }}>React + D3.js + TypeScript</span>
-            <Heart size={12} color="#E1306C" fill="#E1306C" style={{ marginLeft: '2px' }} />
+            <Heart size={12} color="#E1306C" fill="#E1306C" style={{ marginInlineStart: '2px' }} />
           </div>
         </div>
       </div>
