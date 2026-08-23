@@ -1,0 +1,22 @@
+# robots.txt for Mohammed AbdHood Portfolio (https://mohammed-abdhood.dev)
+User-agent: *
+Allow: /
+Allow: /src/
+Allow: /public/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.pdf$
+
+# Googlebot & Bingbot explicit permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://mohammed-abdhood.dev/sitemap.xml

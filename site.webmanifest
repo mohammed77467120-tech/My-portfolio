@@ -1,0 +1,21 @@
+{
+  "name": "Mohammed AbdHood | Portfolio",
+  "short_name": "AbdHood",
+  "description": "Portfolio of Mohammed AbdHood — Information Technology Graduate & Web/Mobile Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090D16",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 256x256",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/mohammed-abdhood-profile.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
