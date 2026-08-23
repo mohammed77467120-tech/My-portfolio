@@ -201,6 +201,8 @@ export default function ProjectsSection() {
                   <img
                     src={getAssetUrl(project.coverImage)}
                     alt={project.title[lang as 'en' | 'ar']}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: '100%',
                       height: '100%',

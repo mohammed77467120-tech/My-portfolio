@@ -1,5 +1,5 @@
 // ============================================================
-// PROJECTS DATA — Mohammed Ramadan Rajab AbdHood
+// PROJECTS DATA — Mohammed AbdHood (محمد عبدهود)
 // ============================================================
 
 export interface Project {

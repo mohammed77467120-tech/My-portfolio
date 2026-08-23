@@ -1,35 +1,48 @@
 // ============================================================
-// PROFILE DATA — Mohammed Ramadan Rajab AbdHood
+// PROFILE DATA — Mohammed AbdHood (محمد عبدهود)
+// Information Technology Graduate & Web/Mobile Developer
 // ============================================================
 
 export const profile = {
   name: {
-    en: 'Mohammed Ramadan Rajab AbdHood',
-    ar: 'محمد رمضان رجب عبد هود',
+    en: 'Mohammed AbdHood',
+    ar: 'محمد عبدهود',
   },
   title: {
-    en: 'Front-End & Mobile Application Developer',
-    ar: 'مطور تطبيقات الويب والجوال',
+    en: 'Information Technology Graduate & Web Developer',
+    ar: 'خريج تقنية معلومات ومطور تطبيقات الويب والموبايل',
   },
   titles: {
-    en: ['Front-End Developer', 'Mobile App Developer', 'React Developer', 'Flutter Developer', 'UI/UX Enthusiast'],
-    ar: ['مطور واجهات أمامية', 'مطور تطبيقات جوال', 'مطور React', 'مطور Flutter', 'مهتم بتجربة المستخدم'],
+    en: [
+      'Information Technology Graduate',
+      'Front-End & Web Developer',
+      'Flutter Mobile Developer',
+      'React Developer',
+      'Systems & Database Developer',
+    ],
+    ar: [
+      'خريج تقنية معلومات',
+      'مطور تطبيقات الويب والجوال',
+      'مطور React واجهات أمامية',
+      'مطور Flutter للجوال',
+      'مطور الأنظمة وقواعد البيانات',
+    ],
   },
   summary: {
-    en: 'Passionate Front-End & Mobile Developer with expertise in React, Flutter, and modern web technologies. I build high-quality, performant, and accessible digital experiences that solve real problems.',
-    ar: 'مطور واجهات أمامية وتطبيقات جوال متحمس، متخصص في React وFlutter وتقنيات الويب الحديثة. أبني تجارب رقمية عالية الجودة وعالية الأداء تحل مشاكل حقيقية.',
+    en: 'Information Technology graduate and software developer specializing in React, Flutter, and modern web/mobile systems. Focused on engineering high-performance, accessible, and scalable digital solutions.',
+    ar: 'خريج تقنية معلومات ومطور برمجيات متخصص في React و Flutter وتطوير أنظمة الويب والجوال الحديثة. أركز على بناء حلول رقمية عالية الأداء وقابلة للتوسع.',
   },
   about: {
-    en: `I'm a Front-End & Mobile Application Developer based in Tarim, Hadhramout, Yemen. With a deep passion for clean code, elegant design, and seamless user experiences, I've dedicated myself to mastering the full spectrum of modern web and mobile development.
+    en: `I'm Mohammed AbdHood, an Information Technology graduate and software developer based in Tarim, Hadhramout, Yemen. With a solid academic foundation in computing, systems, and networks paired with hands-on software engineering, I specialize in building modern, performant web and mobile applications.
 
-My journey began with HTML, CSS, and JavaScript, and has evolved into expertise with React, Flutter, and more. I believe in writing code that not only works but is maintainable, scalable, and a joy to read.
+My technical toolkit spans modern front-end engineering with React and TypeScript, cross-platform mobile development with Flutter and Dart, backend APIs with PHP/Laravel, and database design with MySQL, SQL Server, and Firebase.
 
-I'm always learning, always building, and always striving to push the boundaries of what's possible in web and mobile development.`,
-    ar: `أنا مطور واجهات أمامية وتطبيقات جوال مقيم في تريم، حضرموت، اليمن. بشغف عميق بالكود النظيف والتصميم الأنيق وتجارب المستخدم السلسة، كرست نفسي لإتقان الطيف الكامل لتطوير الويب والجوال الحديث.
+In addition to application development, my IT education covers systems administration, networking fundamentals, and server environments on Windows Server and Linux. I believe in writing clean, maintainable code that solves real-world challenges.`,
+    ar: `أنا محمد عبدهود، خريج تقنية معلومات ومطور برمجيات مقيم في تريم، حضرموت، اليمن. أجمع بين الأساس الأكاديمي المتين في علوم الحاسوب والشبكات والأنظمة، والخبرة العملية في هندسة وتطوير تطبيقات الويب والجوال الحديثة.
 
-بدأت رحلتي بـ HTML وCSS وJavaScript، وتطورت إلى خبرة في React وFlutter والمزيد. أؤمن بكتابة كود لا يعمل فحسب، بل قابل للصيانة وقابل للتوسع ومبهج للقراءة.
+تمتد خبرتي التقنية لتشمل تطوير الواجهات الأمامية بـ React و TypeScript، وبناء تطبيقات الجوال المشتركة بـ Flutter و Dart، وتطوير الخدمات الخلفية بـ PHP و Laravel و RESTful APIs، وإدارة وتصميم قواعد البيانات عبر MySQL و SQL Server و Firebase.
 
-أنا دائمًا أتعلم، دائمًا أبني، وأسعى دائمًا لدفع حدود ما هو ممكن في تطوير الويب والجوال.`,
+وإلى جانب تطوير البرمجيات، تشمل خلفيتي في تقنية المعلومات إدارة الخوادم والأنظمة والشبكات في بيئات Windows Server و Linux. أحرص دائماً على كتابة كود نظيف وتطوير تجارب رقمية سلسة وقابلة للتوسع.`,
   },
   location: { en: 'Tarim, Hadhramout, Yemen', ar: 'تريم، حضرموت، اليمن' },
   email: 'mohammed77467120@gmail.com',
@@ -38,7 +51,7 @@ I'm always learning, always building, and always striving to push the boundaries
   linkedin: 'https://linkedin.com/in/mohammed-abdhood-5192123a4',
   whatsapp: 'https://wa.me/967774657120',
   instagram: 'https://instagram.com/m2_k11',
-  avatar: '/pro.png',
+  avatar: '/mohammed-abdhood-profile.png',
   resume: '/resume.pdf',
   stats: {
     yearsLearning: 3,

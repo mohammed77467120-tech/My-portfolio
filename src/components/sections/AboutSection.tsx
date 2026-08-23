@@ -56,7 +56,9 @@ export default function AboutSection() {
             >
               <img
                 src={getAssetUrl(profile.avatar)}
-                alt={profile.name[lang as 'en' | 'ar']}
+                alt={isAr ? 'محمد عبدهود — خريج تقنية معلومات ومطور برمجيات' : 'Mohammed AbdHood — Information Technology Graduate & Software Developer'}
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: '100%',
                   height: '440px',
@@ -88,7 +90,7 @@ export default function AboutSection() {
                 }}
               >
                 <GraduationCap size={16} />
-                <span>{isAr ? 'مطور برمجيات موثوق' : 'Software Developer'}</span>
+                <span>{isAr ? 'خريج تقنية معلومات (IT)' : 'Information Technology Graduate'}</span>
               </div>
             </div>
           </motion.div>

@@ -282,7 +282,7 @@ export default function HeroSection() {
                 }}
               >
                 <Code2 size={15} />
-                <span>{isAr ? 'React & Flutter Specialist' : 'React & Flutter Specialist'}</span>
+                <span>{isAr ? 'خريج IT ومطور تطبيقات الويب والجوال' : 'IT Graduate & Web/Mobile Developer'}</span>
               </div>
             </motion.div>
 
@@ -304,8 +304,8 @@ export default function HeroSection() {
               </p>
               <p style={{ margin: 0, fontSize: '0.92rem', opacity: 0.92 }}>
                 {isAr
-                  ? 'شغوف ببناء تطبيقات جوال احترافية بـ Flutter ومواقع ويب متقدمة بـ React، مع التركيز على الأداء العالي، التصميم التفاعلي، ونظافة الكود.'
-                  : 'Passionate about building production-grade mobile apps with Flutter and modern web apps with React, focusing on supreme UX, high performance, and robust architecture.'}
+                  ? 'متخصص في بناء وتطوير تطبيقات الويب بـ React وتطبيقات الموبايل بـ Flutter، مع خبرة في إدارة قواعد البيانات، الخوادم، وهندسة الشبكات.'
+                  : 'Specialized in engineering modern web applications with React, mobile apps with Flutter, and backend systems with database architecture and network administration.'}
               </p>
             </motion.div>
 
@@ -434,7 +434,8 @@ export default function HeroSection() {
               >
                 <img
                   src={getAssetUrl(profile.avatar)}
-                  alt={profile.name[lang as 'en' | 'ar']}
+                  alt={isAr ? 'محمد عبدهود — خريج تقنية معلومات ومطور تطبيقات الويب والموبايل' : 'Mohammed AbdHood — Information Technology Graduate & Web Developer'}
+                  fetchPriority="high"
                   style={{
                     width: '100%',
                     height: '100%',

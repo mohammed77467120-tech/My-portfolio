@@ -21,6 +21,11 @@ export function LangProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute('lang', lang)
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr')
     localStorage.setItem('lang', lang)
+    if (lang === 'ar') {
+      document.title = 'محمد عبدهود | Mohammed AbdHood — خريج تقنية معلومات ومطور تطبيقات الويب والموبايل'
+    } else {
+      document.title = 'Mohammed AbdHood | محمد عبدهود — Information Technology Graduate & Web Developer'
+    }
   }, [lang])
 
   const toggleLang = () => setLang(l => l === 'en' ? 'ar' : 'en')

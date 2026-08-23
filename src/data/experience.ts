@@ -1,5 +1,5 @@
 // ============================================================
-// EXPERIENCE & EDUCATION DATA — Mohammed Ramadan Rajab AbdHood
+// EXPERIENCE & EDUCATION DATA — Mohammed AbdHood (محمد عبدهود)
 // ============================================================
 
 export interface TimelineItem {
@@ -16,15 +16,16 @@ export interface TimelineItem {
 export const timelineItems: TimelineItem[] = [
   {
     id: 'edu-1',
-    year: '2020',
+    year: '2020 - 2024',
     type: 'education',
-    title: { en: 'Started Computer Science Journey', ar: 'بداية مسيرة علوم الحاسوب' },
-    organization: { en: 'Self-Taught & Online Platforms', ar: 'التعلم الذاتي والمنصات التعليمية' },
+    title: { en: 'B.Sc. in Information Technology', ar: 'بكالوريوس تقنية معلومات' },
+    organization: { en: 'Faculty of Engineering & IT', ar: 'كلية الهندسة وتقنية المعلومات' },
     description: {
-      en: 'Began programming with HTML, CSS, and JavaScript fundamentals through online courses and self-study.',
-      ar: 'بدأت رحلتي البرمجية بتعلم HTML وCSS وJavaScript عبر الدورات الإلكترونية والتعلم الذاتي.',
+      en: 'Graduated in Information Technology covering software development, database architecture, computer networks, and systems administration.',
+      ar: 'تخرجت في تخصص تقنية المعلومات بدراسة متعمقة في هندسة البرمجيات، قواعد البيانات، شبكات الحاسوب، وإدارة الأنظمة والخوادم.',
     },
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    tags: ['Information Technology', 'Software Engineering', 'Networks', 'Databases'],
+    highlight: true,
   },
   {
     id: 'work-1',
