@@ -16,12 +16,10 @@ const navLinks = [
 export default function Navbar() {
   const { toggleTheme, isDark } = useTheme()
   const { t, toggleLang, lang } = useLang()
-  const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 50)
     const sections = [...navLinks].map((l) => l.key).reverse()
     for (const id of sections) {
       const el = document.getElementById(id)
@@ -62,7 +60,7 @@ export default function Navbar() {
         className="hidden-mobile"
         style={{
           position: 'fixed',
-          top: '20px',
+          top: '16px',
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 1000,
@@ -70,13 +68,11 @@ export default function Navbar() {
           alignItems: 'center',
           gap: '4px',
           padding: '6px 10px',
-          borderRadius: '100px',
-          background: scrolled ? 'var(--nav-bg)' : 'rgba(15, 23, 42, 0.75)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid var(--border-strong)',
+          borderRadius: '12px',
+          background: 'var(--nav-bg)',
+          border: '1px solid var(--border)',
           boxShadow: 'var(--shadow-md)',
-          transition: 'all 0.3s ease',
+          transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
         }}
       >
         {navLinks.map((link) => {
@@ -213,11 +209,9 @@ export default function Navbar() {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '12px 18px',
-          background: scrolled ? 'var(--nav-bg)' : 'rgba(9, 13, 22, 0.85)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          background: 'var(--nav-bg)',
           borderBottom: '1px solid var(--border)',
-          transition: 'all 0.3s ease',
+          transition: 'all 0.2s ease',
         }}
       >
         <span
@@ -242,8 +236,8 @@ export default function Navbar() {
               alignItems: 'center',
               gap: 4,
               background: 'var(--bg-card)',
-              border: '1px solid var(--border-strong)',
-              borderRadius: '100px',
+              border: '1px solid var(--border)',
+              borderRadius: '8px',
               padding: '6px 12px',
               color: 'var(--text-primary)',
               fontSize: '0.78rem',
@@ -261,9 +255,9 @@ export default function Navbar() {
             style={{
               width: 36,
               height: 36,
-              borderRadius: '50%',
+              borderRadius: '8px',
               background: 'var(--bg-card)',
-              border: '1px solid var(--border-strong)',
+              border: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -280,9 +274,9 @@ export default function Navbar() {
             style={{
               width: 36,
               height: 36,
-              borderRadius: '50%',
+              borderRadius: '8px',
               background: 'var(--bg-card)',
-              border: '1px solid var(--border-strong)',
+              border: '1px solid var(--border)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -308,8 +302,6 @@ export default function Navbar() {
               inset: 0,
               zIndex: 999,
               background: 'var(--bg-overlay)',
-              backdropFilter: 'blur(28px)',
-              WebkitBackdropFilter: 'blur(28px)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

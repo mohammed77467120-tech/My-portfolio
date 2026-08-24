@@ -23,7 +23,7 @@ type Tab = 'gallery' | 'details'
 // ─── Status colors ───────────────────────────────────────
 const statusColor: Record<string, string> = {
   completed:   '#22C55E',
-  'in-progress': '#F59E0B',
+  'in-progress': '#0284C7',
   planned:     '#6B7280',
   archived:    '#EF4444',
 }
@@ -87,8 +87,7 @@ export default function ProjectGalleryModal({
         onClick={onClose}
         style={{
           position: 'fixed', inset: 0, zIndex: 9000,
-          background: 'rgba(0,0,0,0.88)',
-          backdropFilter: 'blur(10px)',
+          background: 'rgba(0,0,0,0.8)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '1rem',
         }}
@@ -96,21 +95,21 @@ export default function ProjectGalleryModal({
         {/* ─── Modal Panel ────────────────────────────────── */}
         <motion.div
           key="panel"
-          initial={{ opacity: 0, scale: 0.94, y: 30 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.94, y: 30 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          exit={{ opacity: 0, scale: 0.96, y: 20 }}
+          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
           onClick={e => e.stopPropagation()}
           dir={isAr ? 'rtl' : 'ltr'}
           style={{
             width: '100%',
-            maxWidth: '1100px',
+            maxWidth: '1060px',
             maxHeight: '92vh',
             background: 'var(--bg-card)',
-            borderRadius: '24px',
+            borderRadius: '16px',
             overflow: 'hidden',
             border: '1px solid var(--border)',
-            boxShadow: '0 40px 120px rgba(0,0,0,0.6)',
+            boxShadow: 'var(--shadow-lg)',
             display: 'flex',
             flexDirection: 'column',
           }}
@@ -347,8 +346,8 @@ export default function ProjectGalleryModal({
                     <div style={{
                       position: 'absolute', top: '1rem',
                       [isAr ? 'left' : 'right']: '1rem',
-                      padding: '4px 12px', borderRadius: '100px',
-                      background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(6px)',
+                      padding: '4px 12px', borderRadius: '6px',
+                      background: 'rgba(0,0,0,0.7)',
                       color: 'white', fontSize: '0.78rem', fontWeight: 600,
                     }}>
                       {currentIdx + 1} / {total}

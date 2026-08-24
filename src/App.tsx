@@ -10,7 +10,6 @@ import ContactSection from './components/sections/ContactSection'
 import Footer from './components/layout/Footer'
 import BackToTop from './components/ui/BackToTop'
 import ScrollProgress from './components/ui/ScrollProgress'
-import D3StringTransition from './components/d3/D3StringTransition'
 
 function AppContent() {
   return (
@@ -28,27 +27,27 @@ function AppContent() {
       {/* Top Navbar */}
       <Navbar />
 
-      {/* Main Portfolio Sections with D3 Harmonic Wave Transitions */}
+      {/* Main Portfolio Sections */}
       <main id="main-content" style={{ width: '100%', overflowX: 'hidden' }}>
-        {/* Unified Hero + About Section */}
+        {/* Unified Hero Section */}
         <HeroSection />
 
-        <D3StringTransition color="#F5A623" accentColor="#3ECFCF" />
+        <div style={{ height: '1px', background: 'var(--border)', maxWidth: '1200px', margin: '0 auto', opacity: 0.6 }} />
 
         {/* Skills Hub Section */}
         <SkillsSection />
 
-        <D3StringTransition color="#3ECFCF" accentColor="#646CFF" />
+        <div style={{ height: '1px', background: 'var(--border)', maxWidth: '1200px', margin: '0 auto', opacity: 0.6 }} />
 
         {/* Experience & Timeline Section */}
         <ExperienceSection />
 
-        <D3StringTransition color="#646CFF" accentColor="#F5A623" />
+        <div style={{ height: '1px', background: 'var(--border)', maxWidth: '1200px', margin: '0 auto', opacity: 0.6 }} />
 
         {/* Featured Projects Section */}
         <ProjectsSection />
 
-        <D3StringTransition color="#3ECFCF" accentColor="#F5A623" />
+        <div style={{ height: '1px', background: 'var(--border)', maxWidth: '1200px', margin: '0 auto', opacity: 0.6 }} />
 
         {/* Contact Section */}
         <ContactSection />

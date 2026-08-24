@@ -35,12 +35,12 @@ export const profile = {
   about: {
     en: `I'm Mohammed AbdHood, an Information Technology graduate and software developer based in Tarim, Hadhramout, Yemen. With a solid academic foundation in computing, systems, and networks paired with hands-on software engineering, I specialize in building modern, performant web and mobile applications.
 
-My technical toolkit spans modern front-end engineering with React and TypeScript, cross-platform mobile development with Flutter and Dart, backend APIs with PHP/Laravel, and database design with MySQL, SQL Server, and Firebase.
+My technical toolkit spans modern front-end engineering with React and TypeScript, cross-platform mobile development with Flutter and Dart, and database design with MySQL, SQL Server, and Firebase.
 
 In addition to application development, my IT education covers systems administration, networking fundamentals, and server environments on Windows Server and Linux. I believe in writing clean, maintainable code that solves real-world challenges.`,
     ar: `أنا محمد عبدهود، خريج تقنية معلومات ومطور برمجيات مقيم في تريم، حضرموت، اليمن. أجمع بين الأساس الأكاديمي المتين في علوم الحاسوب والشبكات والأنظمة، والخبرة العملية في هندسة وتطوير تطبيقات الويب والجوال الحديثة.
 
-تمتد خبرتي التقنية لتشمل تطوير الواجهات الأمامية بـ React و TypeScript، وبناء تطبيقات الجوال المشتركة بـ Flutter و Dart، وتطوير الخدمات الخلفية بـ PHP و Laravel و RESTful APIs، وإدارة وتصميم قواعد البيانات عبر MySQL و SQL Server و Firebase.
+تمتد خبرتي التقنية لتشمل تطوير الواجهات الأمامية التفاعلية بـ React و TypeScript، وبناء تطبيقات الجوال المشتركة بـ Flutter و Dart، وإدارة وتصميم قواعد البيانات عبر MySQL و SQL Server و Firebase.
 
 وإلى جانب تطوير البرمجيات، تشمل خلفيتي في تقنية المعلومات إدارة الخوادم والأنظمة والشبكات في بيئات Windows Server و Linux. أحرص دائماً على كتابة كود نظيف وتطوير تجارب رقمية سلسة وقابلة للتوسع.`,
   },

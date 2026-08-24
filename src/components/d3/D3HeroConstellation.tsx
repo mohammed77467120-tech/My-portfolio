@@ -28,7 +28,7 @@ export default function D3HeroConstellation() {
 
     // Generate soothing nodes
     const count = Math.min(Math.floor((width * height) / 14000), 55)
-    const colors = ['rgba(245, 166, 35, 0.7)', 'rgba(62, 207, 207, 0.7)', 'rgba(255, 255, 255, 0.5)']
+    const colors = ['rgba(56, 189, 248, 0.7)', 'rgba(52, 211, 153, 0.7)', 'rgba(255, 255, 255, 0.4)']
 
     const nodes: Node[] = Array.from({ length: count }, (_, i) => ({
       id: i,
@@ -89,14 +89,14 @@ export default function D3HeroConstellation() {
           ctx.beginPath()
           ctx.moveTo(node.x, node.y)
           ctx.lineTo(mouseX, mouseY)
-          ctx.strokeStyle = `rgba(245, 166, 35, ${0.35 * (1 - dist / 140)})`
+          ctx.strokeStyle = `rgba(56, 189, 248, ${0.3 * (1 - dist / 140)})`
           ctx.lineWidth = 1
           ctx.stroke()
         }
       })
 
       // Draw connections between nodes
-      const maxDistance = 130
+      const maxDistance = 120
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x
@@ -104,12 +104,12 @@ export default function D3HeroConstellation() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.2
+            const alpha = (1 - dist / maxDistance) * 0.12
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(62, 207, 207, ${alpha})`
-            ctx.lineWidth = 0.8
+            ctx.strokeStyle = `rgba(14, 165, 233, ${alpha})`
+            ctx.lineWidth = 0.6
             ctx.stroke()
           }
         }
@@ -118,12 +118,9 @@ export default function D3HeroConstellation() {
       // Draw nodes
       nodes.forEach((node) => {
         ctx.beginPath()
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
+        ctx.arc(node.x, node.y, node.radius * 0.8, 0, Math.PI * 2)
         ctx.fillStyle = node.color
-        ctx.shadowColor = node.color
-        ctx.shadowBlur = 8
         ctx.fill()
-        ctx.shadowBlur = 0
       })
 
       animationFrameId = requestAnimationFrame(render)

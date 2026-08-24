@@ -9,7 +9,7 @@ const socials = [
   { icon: LinkedinIcon, label: 'LinkedIn', href: profile.linkedin, color: '#0A66C2' },
   { icon: InstagramIcon, label: 'Instagram', href: profile.instagram, color: '#E1306C' },
   { icon: MessageCircle, label: 'WhatsApp', href: profile.whatsapp, color: '#25D366' },
-  { icon: Mail, label: 'Email', href: `mailto:${profile.email}`, color: '#F5A623' },
+  { icon: Mail, label: 'Email', href: `mailto:${profile.email}`, color: '#38BDF8' },
 ]
 
 export default function Footer() {

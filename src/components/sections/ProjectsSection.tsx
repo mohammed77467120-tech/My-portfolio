@@ -184,14 +184,13 @@ export default function ProjectsSection() {
                 onClick={() => setSelectedProject(project)}
                 whileHover={{ y: -5 }}
                 style={{
-                  borderRadius: '22px',
+                  borderRadius: '14px',
                   background: 'var(--bg-card)',
-                  border: `1px solid ${hoveredId === project.id ? 'var(--copper)' : 'var(--border-strong)'}`,
-                  backdropFilter: 'blur(16px)',
-                  boxShadow: hoveredId === project.id ? '0 16px 48px rgba(245,166,35,0.18)' : 'var(--shadow-sm)',
+                  border: `1px solid ${hoveredId === project.id ? 'var(--copper)' : 'var(--border)'}`,
+                  boxShadow: hoveredId === project.id ? 'var(--shadow-md)' : 'var(--shadow-sm)',
                   overflow: 'hidden',
                   cursor: 'pointer',
-                  transition: 'border-color 0.3s, box-shadow 0.3s',
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                   display: 'flex',
                   flexDirection: 'column',
                 }}
@@ -207,8 +206,8 @@ export default function ProjectsSection() {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
-                      transform: hoveredId === project.id ? 'scale(1.06)' : 'scale(1)',
+                      transition: 'transform 0.4s ease',
+                      transform: hoveredId === project.id ? 'scale(1.04)' : 'scale(1)',
                     }}
                     onError={(e) => {
                       const el = e.currentTarget
@@ -221,13 +220,13 @@ export default function ProjectsSection() {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(to bottom, rgba(9,13,22,0.4) 0%, rgba(9,13,22,0.85) 100%)',
+                      background: 'rgba(12, 16, 23, 0.75)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '12px',
                       opacity: hoveredId === project.id ? 1 : 0,
-                      transition: 'opacity 0.25s ease',
+                      transition: 'opacity 0.2s ease',
                     }}
                   >
                     <div
@@ -235,10 +234,10 @@ export default function ProjectsSection() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
-                        padding: '8px 18px',
-                        borderRadius: '100px',
+                        padding: '7px 16px',
+                        borderRadius: '8px',
                         background: 'var(--copper)',
-                        color: '#090D16',
+                        color: '#0C1017',
                         fontSize: '0.85rem',
                         fontWeight: 700,
                       }}
@@ -254,14 +253,13 @@ export default function ProjectsSection() {
                       position: 'absolute',
                       top: '12px',
                       insetInlineEnd: '12px',
-                      padding: '4px 12px',
-                      borderRadius: '100px',
-                      background: project.status === 'completed' ? 'rgba(62,207,207,0.2)' : 'rgba(245,166,35,0.2)',
-                      border: `1px solid ${project.status === 'completed' ? '#3ECFCF80' : '#F5A62380'}`,
-                      color: project.status === 'completed' ? '#3ECFCF' : '#F5A623',
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: 'var(--bg-card)',
+                      border: `1px solid ${project.status === 'completed' ? 'var(--accent-cyan)' : 'var(--copper)'}`,
+                      color: project.status === 'completed' ? 'var(--accent-cyan)' : 'var(--copper)',
                       fontSize: '0.72rem',
                       fontWeight: 700,
-                      backdropFilter: 'blur(10px)',
                     }}
                   >
                     {project.status === 'completed' ? (isAr ? 'مكتمل' : 'Completed') : (isAr ? 'قيد التطوير' : 'In Progress')}

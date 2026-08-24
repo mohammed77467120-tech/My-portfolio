@@ -4,7 +4,6 @@ import { MapPin, Mail, Phone, UserCheck, GraduationCap } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
-import { getAssetUrl } from '../../utils/asset'
 
 export default function AboutSection() {
   const { t, lang } = useLang()
@@ -33,7 +32,7 @@ export default function AboutSection() {
             alignItems: 'center',
           }}
         >
-          {/* Left Column: Glass Image Box - Perfectly Centered Image */}
+          {/* Left Column: Formal Academic & Technical Credentials Card (No Photo) */}
           <motion.div
             initial={{ opacity: 0, x: isAr ? 30 : -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -42,55 +41,113 @@ export default function AboutSection() {
             <div
               style={{
                 position: 'relative',
-                borderRadius: '24px',
-                padding: '12px',
+                borderRadius: '16px',
+                padding: '2rem',
                 background: 'var(--bg-card)',
-                border: '1px solid var(--border-strong)',
-                backdropFilter: 'blur(16px)',
-                boxShadow: 'var(--shadow-lg)',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-md)',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden',
+                flexDirection: 'column',
+                gap: '1.25rem',
               }}
             >
-              <img
-                src={getAssetUrl(profile.avatar)}
-                alt={isAr ? 'محمد عبدهود — خريج تقنية معلومات ومطور برمجيات' : 'Mohammed AbdHood — Information Technology Graduate & Software Developer'}
-                loading="lazy"
-                decoding="async"
-                style={{
-                  width: '100%',
-                  height: '440px',
-                  objectFit: 'cover',
-                  objectPosition: 'center 20%', // Centers the face in portrait
-                  borderRadius: '16px',
-                  display: 'block',
-                }}
-              />
-
+              {/* Header Badge */}
               <div
                 style={{
-                  position: 'absolute',
-                  top: '24px',
-                  right: isAr ? 'auto' : '24px',
-                  left: isAr ? '24px' : 'auto',
-                  background: 'var(--bg-overlay)',
-                  border: '1px solid var(--copper)',
-                  padding: '8px 16px',
-                  borderRadius: '100px',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
+                  gap: '8px',
+                  padding: '6px 14px',
+                  borderRadius: '100px',
+                  background: 'var(--copper-subtle)',
+                  border: '1px solid var(--copper)',
                   color: 'var(--copper)',
-                  fontSize: '0.8rem',
+                  fontSize: '0.82rem',
                   fontWeight: 700,
-                  backdropFilter: 'blur(12px)',
-                  boxShadow: 'var(--shadow-sm)',
+                  width: 'fit-content',
                 }}
               >
                 <GraduationCap size={16} />
-                <span>{isAr ? 'خريج تقنية معلومات (IT)' : 'Information Technology Graduate'}</span>
+                <span>{isAr ? 'خريج تقنية معلومات معتمد' : 'Verified IT Graduate'}</span>
+              </div>
+
+              <div>
+                <h3
+                  style={{
+                    fontSize: '1.4rem',
+                    fontWeight: 800,
+                    color: 'var(--text-primary)',
+                    fontFamily: 'var(--font-heading)',
+                    margin: '0 0 0.5rem 0',
+                  }}
+                >
+                  {isAr ? 'المؤهلات الأكاديمية والمهنية' : 'Academic & Professional Credentials'}
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.6 }}>
+                  {isAr
+                    ? 'بكالوريوس تقنية معلومات من جامعة الأحقاف (2022 - 2026)، متخصص في تطوير برمجيات الويب وتطبيقات الجوال والأنظمة.'
+                    : 'B.Sc. in Information Technology from Al-Ahqaf University (2022 - 2026), specializing in Web & Mobile software engineering.'}
+                </p>
+              </div>
+
+              {/* Fast Spec Highlights */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    {isAr ? 'الجامعة:' : 'University:'}
+                  </span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                    {isAr ? 'جامعة الأحقاف (حضرموت)' : 'Al-Ahqaf University'}
+                  </span>
+                </div>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    {isAr ? 'الدرجة والتخصص:' : 'Degree & Major:'}
+                  </span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--copper)' }}>
+                    B.Sc. IT (Web & Mobile)
+                  </span>
+                </div>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    {isAr ? 'إجمالي المهارات المعتمدة:' : 'Verified CV Skills:'}
+                  </span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>
+                    23 Technical Skills
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>

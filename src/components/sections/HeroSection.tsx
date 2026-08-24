@@ -18,7 +18,6 @@ import { GithubIcon, LinkedinIcon, InstagramIcon } from '../ui/BrandIcons'
 import { useLang } from '../../context/LangContext'
 import { profile } from '../../data/profile'
 import D3HeroConstellation from '../d3/D3HeroConstellation'
-import { getAssetUrl } from '../../utils/asset'
 import { useEffect, useState } from 'react'
 
 // Typing Animation Hook with Smooth Transitions
@@ -158,46 +157,51 @@ export default function HeroSection() {
       <div id="about" style={{ position: 'absolute', top: '10%', left: 0, width: '1px', height: '1px', pointerEvents: 'none' }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Master Hero Grid */}
+        {/* Master Centered Hero Layout (No Personal Photo Section) */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-            gap: 'clamp(2rem, 4vw, 3.5rem)',
+            maxWidth: '860px',
+            margin: '0 auto',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          {/* Left Column: Details & Animated Typography */}
+          {/* Hero Details & Animated Typography */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            style={{ display: 'flex', flexDirection: 'column' }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '100%',
+            }}
           >
-            {/* Animated Role Badge with Live Typing & Pulse */}
+            {/* Role Badge with Live Typing */}
             <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '7px 18px',
-                borderRadius: '100px',
-                background: 'linear-gradient(135deg, rgba(245,166,35,0.15), rgba(62,207,207,0.12))',
-                border: '1px solid rgba(245,166,35,0.5)',
-                boxShadow: '0 0 20px rgba(245,166,35,0.15)',
+                padding: '6px 16px',
+                borderRadius: '8px',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
                 color: 'var(--copper)',
                 fontSize: '0.85rem',
-                fontWeight: 700,
+                fontWeight: 600,
                 fontFamily: 'var(--font-heading)',
                 marginBottom: '1.25rem',
-                backdropFilter: 'blur(16px)',
                 width: 'fit-content',
               }}
             >
-              <Sparkles size={16} className="hero-sparkle" />
+              <Sparkles size={15} className="hero-sparkle" />
               <span>
                 {typedText}
                 <span
@@ -218,14 +222,15 @@ export default function HeroSection() {
             <h1
               className="animated-hero-title"
               style={{
-                fontSize: 'clamp(2.1rem, 4.8vw, 3.6rem)',
+                fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)',
                 fontWeight: 900,
                 lineHeight: isAr ? 1.3 : 1.12,
                 fontFamily: 'var(--font-heading)',
                 margin: '0 0 1rem 0',
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '0.45rem',
+                justifyContent: 'center',
+                gap: '0.55rem',
               }}
             >
               {nameWords.map((word, i) => (
@@ -250,9 +255,10 @@ export default function HeroSection() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '12px',
                 flexWrap: 'wrap',
-                marginBottom: '1.35rem',
+                marginBottom: '1.5rem',
               }}
             >
               <div
@@ -261,7 +267,7 @@ export default function HeroSection() {
                   alignItems: 'center',
                   gap: '6px',
                   color: 'var(--accent-cyan)',
-                  fontSize: '0.88rem',
+                  fontSize: '0.9rem',
                   fontWeight: 600,
                 }}
               >
@@ -277,12 +283,41 @@ export default function HeroSection() {
                   alignItems: 'center',
                   gap: '6px',
                   color: 'var(--copper-light)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.88rem',
                   fontWeight: 600,
                 }}
               >
                 <Code2 size={15} />
                 <span>{isAr ? 'خريج IT ومطور تطبيقات الويب والجوال' : 'IT Graduate & Web/Mobile Developer'}</span>
+              </div>
+
+              <span style={{ color: 'var(--border-strong)', fontSize: '0.8rem' }}>•</span>
+
+              {/* Status Live Indicator Badge */}
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: '#22C55E',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  background: 'rgba(34,197,94,0.1)',
+                  padding: '3px 10px',
+                  borderRadius: '100px',
+                  border: '1px solid rgba(34,197,94,0.3)',
+                }}
+              >
+                <div
+                  style={{
+                    width: '7px',
+                    height: '7px',
+                    borderRadius: '50%',
+                    background: '#22C55E',
+                    boxShadow: '0 0 8px #22C55E',
+                  }}
+                />
+                <span>{isAr ? 'متاح للعمل والمشاريع' : 'Available for Work'}</span>
               </div>
             </motion.div>
 
@@ -293,19 +328,20 @@ export default function HeroSection() {
               transition={{ delay: 0.45, duration: 0.6 }}
               style={{
                 color: 'var(--text-secondary)',
-                fontSize: 'clamp(0.95rem, 1.15vw, 1.06rem)',
-                lineHeight: 1.75,
-                marginBottom: '1.85rem',
-                maxWidth: '620px',
+                fontSize: 'clamp(1rem, 1.25vw, 1.12rem)',
+                lineHeight: 1.8,
+                marginBottom: '2rem',
+                maxWidth: '680px',
+                textAlign: 'center',
               }}
             >
               <p style={{ margin: '0 0 0.85rem 0' }}>
                 {profile.summary[lang as 'en' | 'ar']}
               </p>
-              <p style={{ margin: 0, fontSize: '0.92rem', opacity: 0.92 }}>
+              <p style={{ margin: 0, fontSize: '0.95rem', opacity: 0.9 }}>
                 {isAr
                   ? 'متخصص في بناء وتطوير تطبيقات الويب بـ React وتطبيقات الموبايل بـ Flutter، مع خبرة في إدارة قواعد البيانات، الخوادم، وهندسة الشبكات.'
-                  : 'Specialized in engineering modern web applications with React, mobile apps with Flutter, and backend systems with database architecture and network administration.'}
+                  : 'Specialized in engineering modern web applications with React, mobile apps with Flutter, database architecture, and network administration.'}
               </p>
             </motion.div>
 
@@ -316,9 +352,10 @@ export default function HeroSection() {
               transition={{ delay: 0.55 }}
               style={{
                 display: 'flex',
-                gap: '0.75rem',
+                gap: '0.85rem',
                 flexWrap: 'wrap',
                 alignItems: 'center',
+                justifyContent: 'center',
                 marginBottom: '2rem',
               }}
             >
@@ -358,6 +395,7 @@ export default function HeroSection() {
                 display: 'flex',
                 gap: '10px',
                 alignItems: 'center',
+                justifyContent: 'center',
                 flexWrap: 'wrap',
               }}
             >
@@ -369,121 +407,14 @@ export default function HeroSection() {
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
                   className="btn-icon"
-                  style={{ width: 38, height: 38, minWidth: 38 }}
+                  style={{ width: 40, height: 40, minWidth: 40 }}
                 >
-                  <Icon size={16} />
+                  <Icon size={17} />
                 </a>
               ))}
 
               <CopyPill text={profile.email} label={isAr ? 'نسخ البريد الإلكتروني' : 'Copy Email'} />
             </motion.div>
-          </motion.div>
-
-          {/* Right Column: Single Polished Portrait Avatar with Glowing Aura */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-            }}
-          >
-            {/* Ambient Background Aura */}
-            <div
-              style={{
-                position: 'absolute',
-                width: '320px',
-                height: '320px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245,166,35,0.2) 0%, rgba(62,207,207,0.1) 60%, transparent 80%)',
-                filter: 'blur(40px)',
-                pointerEvents: 'none',
-                zIndex: 0,
-              }}
-            />
-
-            {/* Avatar Frame Box */}
-            <div
-              style={{
-                position: 'relative',
-                zIndex: 1,
-                width: 'min(100%, 360px)',
-                borderRadius: '28px',
-                padding: '12px',
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border-strong)',
-                boxShadow: 'var(--shadow-lg)',
-                backdropFilter: 'blur(20px)',
-                transition: 'transform 0.4s ease, border-color 0.4s ease',
-              }}
-            >
-              {/* Inner Picture Container */}
-              <div
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  height: '380px',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  background: 'var(--bg-secondary)',
-                }}
-              >
-                <img
-                  src={getAssetUrl(profile.avatar)}
-                  alt={isAr ? 'محمد عبدهود — خريج تقنية معلومات ومطور تطبيقات الويب والموبايل' : 'Mohammed AbdHood — Information Technology Graduate & Web Developer'}
-                  fetchPriority="high"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center 15%',
-                    display: 'block',
-                    transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
-                  onError={(e) => {
-                    const el = e.currentTarget
-                    el.src = '/person.png'
-                  }}
-                />
-              </div>
-
-              {/* Status Live Indicator Badge */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '-14px',
-                  insetInlineEnd: '20px',
-                  background: 'var(--bg-overlay)',
-                  border: '1px solid var(--accent-cyan)',
-                  padding: '8px 18px',
-                  borderRadius: '100px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  color: 'var(--accent-cyan)',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  boxShadow: '0 8px 24px rgba(62,207,207,0.25)',
-                  backdropFilter: 'blur(16px)',
-                }}
-              >
-                <div
-                  style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'var(--accent-cyan)',
-                    boxShadow: '0 0 12px var(--accent-cyan)',
-                    animation: 'pulse 2s ease infinite',
-                  }}
-                />
-                <span>{isAr ? 'متاح للمشاريع والعمل' : 'Available for Work'}</span>
-              </div>
-            </div>
           </motion.div>
         </div>
 
@@ -510,20 +441,20 @@ export default function HeroSection() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '14px',
-                  padding: '1rem 1.25rem',
-                  borderRadius: '18px',
+                  padding: '1.1rem 1.25rem',
+                  borderRadius: '12px',
                   background: 'var(--bg-card)',
                   border: '1px solid var(--border)',
-                  backdropFilter: 'blur(12px)',
+                  boxShadow: 'var(--shadow-sm)',
                 }}
               >
                 <div
                   style={{
                     width: 44,
                     height: 44,
-                    borderRadius: '12px',
-                    background: 'var(--copper-subtle)',
-                    border: '1px solid var(--border-strong)',
+                    borderRadius: '10px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

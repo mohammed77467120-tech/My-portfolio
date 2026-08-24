@@ -1,77 +1,83 @@
 /* ============================================================
-   PORTFOLIO DESIGN SYSTEM — COPPER + OBSIDIAN
+   PORTFOLIO DESIGN SYSTEM — BESPOKE SOLID & PROFESSIONAL
    Bilingual (Arabic / English) High-Performance Architecture
+   Comfortable, High-Contrast, Eye-Friendly (Zero Glassmorphism)
    ============================================================ */
 
 /* ── THEME TOKENS ─────────────────────────────────────────── */
 :root {
-  /* Default Soothing Obsidian Dark Palette */
-  --bg-primary: #090D16;
-  --bg-secondary: #0F172A;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --bg-card-hover: rgba(15, 23, 42, 0.95);
-  --bg-overlay: rgba(9, 13, 22, 0.95);
+  /* Eye-Friendly Dark Slate & Sky Blue Palette (Zero Eye Strain) */
+  --bg-primary: #0B0F17;
+  --bg-secondary: #131926;
+  --bg-card: #131926;
+  --bg-card-hover: #1B2436;
+  --bg-overlay: #0B0F17;
 
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
-  --text-inverse: #090D16;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-inverse: #0B0F17;
 
-  --copper: #F5A623;
-  --copper-light: #FFC054;
-  --copper-dark: #C67E00;
-  --copper-glow: rgba(245, 166, 35, 0.3);
-  --copper-subtle: rgba(245, 166, 35, 0.12);
+  /* Soothing Modern Sky Blue Primary Accent */
+  --copper: #38BDF8;
+  --copper-light: #7DD3FC;
+  --copper-dark: #0284C7;
+  --copper-glow: rgba(56, 189, 248, 0.15);
+  --copper-subtle: rgba(56, 189, 248, 0.1);
 
-  --accent-cyan: #3ECFCF;
-  --accent-cyan-glow: rgba(62, 207, 207, 0.3);
-  --accent-cyan-subtle: rgba(62, 207, 207, 0.12);
+  /* Soft Mint / Emerald Secondary Accent */
+  --accent-cyan: #34D399;
+  --accent-cyan-glow: rgba(52, 211, 153, 0.15);
+  --accent-cyan-subtle: rgba(52, 211, 153, 0.1);
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --border: #222D42;
+  --border-strong: #334155;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.55);
 
-  --nav-bg: rgba(9, 13, 22, 0.88);
+  --nav-bg: #131926;
 
-  /* Typography defaults (English) */
+  /* Typography defaults */
   --font-heading: 'Outfit', 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Outfit', 'Readex Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 [data-theme="light"] {
+  /* Crisp, Soft, Eye-Friendly Ocean Blue Palette (Zero Glare) */
   --bg-primary: #F8FAFC;
   --bg-secondary: #F1F5F9;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --bg-card-hover: #FFFFFF;
-  --bg-overlay: rgba(248, 250, 252, 0.96);
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-overlay: #FFFFFF;
 
   --text-primary: #0F172A;
-  --text-secondary: #334155;
+  --text-secondary: #475569;
   --text-muted: #64748B;
   --text-inverse: #F8FAFC;
 
-  --copper: #D97706;
-  --copper-light: #F59E0B;
-  --copper-dark: #B45309;
-  --copper-glow: rgba(217, 119, 6, 0.2);
-  --copper-subtle: rgba(217, 119, 6, 0.08);
+  /* Deep Ocean Blue Primary Accent */
+  --copper: #0284C7;
+  --copper-light: #0369A1;
+  --copper-dark: #075985;
+  --copper-glow: rgba(2, 132, 199, 0.12);
+  --copper-subtle: rgba(2, 132, 199, 0.08);
 
-  --accent-cyan: #0D9488;
-  --accent-cyan-glow: rgba(13, 148, 136, 0.2);
-  --accent-cyan-subtle: rgba(13, 148, 136, 0.08);
+  /* Deep Mint / Teal Secondary Accent */
+  --accent-cyan: #059669;
+  --accent-cyan-glow: rgba(5, 150, 105, 0.12);
+  --accent-cyan-subtle: rgba(5, 150, 105, 0.08);
 
-  --border: rgba(15, 23, 42, 0.08);
-  --border-strong: rgba(15, 23, 42, 0.16);
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
 
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 8px 30px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.1);
 
-  --nav-bg: rgba(248, 250, 252, 0.9);
+  --nav-bg: #FFFFFF;
 }
 
 /* ── BILINGUAL TYPOGRAPHY SWITCH ─────────────────────────── */
@@ -112,7 +118,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
   min-height: 100vh;
 }
@@ -135,23 +141,23 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--copper);
+  background: var(--border-strong);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--copper-light);
+  background: var(--copper);
 }
 
 /* ── SELECTION ────────────────────────────────────────────── */
 ::selection {
-  background: rgba(245, 166, 35, 0.3);
-  color: var(--text-primary);
+  background: var(--copper-subtle);
+  color: var(--copper-light);
 }
 
 /* ── LAYOUT & CONTAINERS ─────────────────────────────────── */
 .container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1280px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 3.5vw, 2.5rem);
 }
@@ -159,7 +165,7 @@ body {
 .section {
   position: relative;
   width: 100%;
-  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  padding-block: clamp(4rem, 7vw, 6.5rem);
   overflow-x: clip;
 }
 
@@ -167,12 +173,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--text-primary);
 }
 
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: 0;
 }
 
@@ -192,24 +198,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
 }
 
-/* ── BUTTONS (High Quality Rounded Pill Design) ───────────── */
+/* ── SOLID & PROFESSIONAL BUTTONS ─────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 22px;
-  border-radius: 100px;
+  padding: 9px 20px;
+  border-radius: 10px;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-primary);
-  backdrop-filter: blur(12px);
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
   user-select: none;
@@ -219,7 +224,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: var(--copper);
-  color: var(--copper);
 }
 
 .btn:active {
@@ -227,51 +231,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, rgba(245, 166, 35, 0.95), rgba(217, 119, 6, 0.95));
-  border: 1px solid var(--copper);
-  color: #090D16;
+  background: #0284C7;
+  border: 1px solid #0284C7;
+  color: #FFFFFF;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.35);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #FFC054, #F5A623);
-  color: #090D16;
-  box-shadow: 0 6px 24px rgba(245, 166, 35, 0.5);
-  border-color: #FFC054;
+  background: #0369A1;
+  border-color: #0369A1;
+  color: #FFFFFF;
 }
 
 .btn-outline {
   background: var(--bg-card);
   color: var(--text-primary);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
 }
 
 .btn-outline:hover {
-  background: var(--copper-subtle);
-  border-color: var(--copper);
-  color: var(--copper);
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
 }
 
 .btn-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
   padding: 0;
-  border-radius: 50%;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  color: var(--text-primary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
 }
 
 .btn-icon:hover {
-  background: var(--copper-subtle);
+  background: var(--bg-card-hover);
   border-color: var(--copper);
   color: var(--copper);
   transform: translateY(-2px);
@@ -301,7 +302,7 @@ a {
   height: auto;
   padding: 10px 20px;
   background: var(--copper);
-  color: #090D16;
+  color: #0C1017;
   font-weight: 700;
   font-size: 0.95rem;
   z-index: 9999;

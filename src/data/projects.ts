@@ -33,15 +33,15 @@ export const projects: Project[] = [
       ar: 'نظام إدارة التطعيم والرعاية الصحية',
     },
     subtitle: {
-      en: 'Full-Stack Healthcare Management Platform',
-      ar: 'منصة إدارة الرعاية الصحية الشاملة',
+      en: 'Interactive Healthcare Management Platform',
+      ar: 'منصة إدارة الرعاية الصحية التفاعلية',
     },
     description: {
-      en: 'A comprehensive healthcare management system for immunization tracking, maternal health, and reproductive care. Built with React and integrated with a real backend, supporting Arabic/English with full RTL layout.',
+      en: 'A comprehensive healthcare management system for immunization tracking, maternal health, and reproductive care. Built with React, supporting Arabic/English with full RTL layout.',
       ar: 'نظام إدارة رعاية صحية شامل لتتبع التطعيمات وصحة الأمومة والرعاية الإنجابية. مبني بـ React مع دعم كامل للعربية والإنجليزية.',
     },
-    category: 'fullstack',
-    technologies: ['React', 'JavaScript', 'REST API', 'i18next', 'React Router', 'PDF Export', 'AI Chatbot'],
+    category: 'frontend',
+    technologies: ['React', 'JavaScript', 'i18next', 'React Router', 'PDF Export', 'AI Chatbot'],
     coverImage: '/projects/icms/dashboard.png',
     screenshots: [
       '/projects/icms/dashboard.png',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
         'الصحة الإنجابية — وحدة متخصصة لسجلات رعاية الأمومة وتتبع الحمل وإدارة الصحة الإنجابية.',
       ],
     },
-    role: { en: 'Full-Stack Developer', ar: 'مطور متكامل' },
+    role: { en: 'Front-End Developer', ar: 'مطور واجهات أمامية' },
     duration: { en: '6 months', ar: '6 أشهر' },
     status: 'completed',
     features: {
@@ -110,11 +110,11 @@ export const projects: Project[] = [
       ar: 'لوحة تحكم المصادقة ومراقبة التهديدات',
     },
     description: {
-      en: 'A full-stack security-first authentication and threat monitoring dashboard. Detects and blocks brute-force, SQL injection, and suspicious login attempts with real-time analytics.',
-      ar: 'منصة مصادقة وأمن متكاملة تكتشف وتصد هجمات القوة العمياء وحقن SQL ومحاولات الدخول المشبوهة مع تحليلات فورية.',
+      en: 'A security-first authentication and threat monitoring dashboard interface. Detects and visualizes brute-force, SQL injection, and suspicious login attempts with real-time analytics.',
+      ar: 'واجهة منصة مصادقة وأمن متكاملة تكتشف وتصد محاولات الدخول المشبوهة مع تحليلات ورسوم بيانية فورية.',
     },
-    category: 'fullstack',
-    technologies: ['React', 'Vite', 'Recharts', 'C#', 'ASP.NET Core 6', 'PostgreSQL', 'JWT', 'BCrypt'],
+    category: 'frontend',
+    technologies: ['React', 'Vite', 'Recharts', 'Security UI', 'JWT', 'Threat Analytics'],
     coverImage: '/projects/auth/screen1.png',
     screenshots: [
       '/projects/auth/screen1.png',

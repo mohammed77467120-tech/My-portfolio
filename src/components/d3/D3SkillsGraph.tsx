@@ -62,7 +62,18 @@ export default function D3SkillsGraph({
         name: c.label[lang],
         type: 'hub',
         category: c.key,
-        color: c.key === 'frontend' ? '#3ECFCF' : c.key === 'mobile' ? '#F5A623' : '#646CFF',
+        color:
+          c.key === 'frontend'
+            ? '#3ECFCF'
+            : c.key === 'mobile'
+            ? '#F5A623'
+            : c.key === 'database'
+            ? '#4479A1'
+            : c.key === 'systems'
+            ? '#14B8A6'
+            : c.key === 'engineering'
+            ? '#A855F7'
+            : '#F05032',
         radius: 32,
       }))
 
@@ -310,11 +321,10 @@ export default function D3SkillsGraph({
           style={{
             width: '100%',
             height: 'clamp(360px, 45vh, 480px)',
-            borderRadius: '24px',
+            borderRadius: '16px',
             background: 'var(--bg-card)',
-            border: '1px solid var(--border-strong)',
-            backdropFilter: 'blur(16px)',
-            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--border)',
+            boxShadow: 'var(--shadow-sm)',
             overflow: 'hidden',
             position: 'relative',
           }}
@@ -332,10 +342,10 @@ export default function D3SkillsGraph({
               gap: '8px',
               fontSize: '0.76rem',
               color: 'var(--text-muted)',
-              background: 'var(--bg-overlay)',
+              background: 'var(--bg-secondary)',
               padding: '6px 14px',
-              borderRadius: '100px',
-              border: '1px solid var(--border-strong)',
+              borderRadius: '8px',
+              border: '1px solid var(--border)',
               pointerEvents: 'none',
               maxWidth: 'calc(100% - 28px)',
             }}
@@ -349,17 +359,16 @@ export default function D3SkillsGraph({
           </div>
         </div>
 
-      {/* Selected Skill Detail Glass Card */}
+      {/* Selected Skill Detail Solid Card */}
       {selectedSkill && (
         <div
           style={{
             marginTop: '1.5rem',
             padding: '1.5rem 1.75rem',
-            borderRadius: '24px',
+            borderRadius: '16px',
             background: 'var(--bg-card)',
-            border: `1px solid ${selectedSkill.color}60`,
-            backdropFilter: 'blur(16px)',
-            boxShadow: 'var(--shadow-md)',
+            border: `1px solid ${selectedSkill.color}`,
+            boxShadow: 'var(--shadow-sm)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',

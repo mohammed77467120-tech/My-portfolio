@@ -292,11 +292,10 @@ export default function ContactSection() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
-                    padding: '1.15rem 1.25rem',
-                    borderRadius: '16px',
+                    padding: '1.1rem 1.25rem',
+                    borderRadius: '12px',
                     background: 'var(--bg-card)',
-                    border: '1px solid var(--border-strong)',
-                    backdropFilter: 'blur(12px)',
+                    border: '1px solid var(--border)',
                     boxShadow: 'var(--shadow-sm)',
                   }}
                 >
@@ -304,9 +303,9 @@ export default function ContactSection() {
                     style={{
                       width: 42,
                       height: 42,
-                      borderRadius: '12px',
-                      background: 'var(--copper-subtle)',
-                      border: '1px solid var(--copper)',
+                      borderRadius: '10px',
+                      background: 'var(--bg-secondary)',
+                      border: '1px solid var(--border)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -362,7 +361,7 @@ export default function ContactSection() {
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
                   className="btn-icon"
-                  style={{ width: 44, height: 44 }}
+                  style={{ width: 40, height: 40 }}
                 >
                   <Icon size={18} />
                 </a>
@@ -378,10 +377,9 @@ export default function ContactSection() {
             onSubmit={handleSubmit}
             style={{
               padding: 'clamp(1.4rem, 3vw, 2rem)',
-              borderRadius: '22px',
+              borderRadius: '14px',
               background: 'var(--bg-card)',
-              border: '1px solid var(--border-strong)',
-              backdropFilter: 'blur(16px)',
+              border: '1px solid var(--border)',
               boxShadow: 'var(--shadow-md)',
               display: 'flex',
               flexDirection: 'column',

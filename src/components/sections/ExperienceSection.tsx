@@ -18,11 +18,11 @@ function getTypeIcon(type: TimelineItem['type']) {
 function getTypeColor(type: TimelineItem['type']) {
   switch (type) {
     case 'education':
-      return '#3ECFCF'
+      return '#38BDF8'
     case 'achievement':
-      return '#F5A623'
+      return '#34D399'
     default:
-      return '#646CFF'
+      return '#0284C7'
   }
 }
 
@@ -81,14 +81,14 @@ export default function ExperienceSection() {
             }}
           >
             {isAr
-              ? 'رحلة متواصلة من التعلم، بناء الأنظمة، وتطوير التطبيقات منذ عام 2020 حتى اليوم'
-              : 'A continuous track of engineering, building applications, and continuous learning'}
+              ? 'مسار الخبرة المهنية، التعليم، والمشاريع البرمجية'
+              : 'Professional experience, academic education, and software projects'}
           </p>
         </div>
 
         {/* ── DESKTOP TIMELINE (Visible >= 768px) ── */}
         <div className="timeline-desktop" style={{ position: 'relative', maxWidth: '900px', margin: '0 auto' }}>
-          {/* Central Glowing Spine */}
+          {/* Central Spine */}
           <div
             style={{
               position: 'absolute',
@@ -96,9 +96,8 @@ export default function ExperienceSection() {
               top: 0,
               bottom: 0,
               width: '2px',
-              background: 'linear-gradient(to bottom, var(--copper), var(--accent-cyan), transparent)',
+              background: 'var(--border)',
               transform: 'translateX(-50%)',
-              opacity: 0.45,
             }}
           />
 
@@ -142,14 +141,13 @@ export default function ExperienceSection() {
                 <div
                   style={{
                     width: 'calc(50% - 2.5rem)',
-                    padding: '1.6rem',
-                    borderRadius: '22px',
+                    padding: '1.5rem',
+                    borderRadius: '14px',
                     background: 'var(--bg-card)',
-                    border: `1px solid ${item.highlight ? color + '80' : 'var(--border-strong)'}`,
-                    backdropFilter: 'blur(16px)',
-                    boxShadow: item.highlight ? `0 10px 30px ${color}25` : 'var(--shadow-sm)',
+                    border: `1px solid ${item.highlight ? 'var(--copper)' : 'var(--border)'}`,
+                    boxShadow: 'var(--shadow-sm)',
                     position: 'relative',
-                    transition: 'transform 0.3s ease, border-color 0.3s ease',
+                    transition: 'transform 0.2s ease, border-color 0.2s ease',
                   }}
                 >
                   {/* Top Header: Badge & Category */}
@@ -313,10 +311,9 @@ export default function ExperienceSection() {
                     style={{
                       width: '100%',
                       padding: '1.25rem',
-                      borderRadius: '18px',
+                      borderRadius: '14px',
                       background: 'var(--bg-card)',
-                      border: `1px solid ${item.highlight ? color + '80' : 'var(--border-strong)'}`,
-                      backdropFilter: 'blur(16px)',
+                      border: `1px solid ${item.highlight ? 'var(--copper)' : 'var(--border)'}`,
                       boxShadow: 'var(--shadow-sm)',
                     }}
                   >

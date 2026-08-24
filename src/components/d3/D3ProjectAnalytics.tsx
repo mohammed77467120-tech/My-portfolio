@@ -119,11 +119,10 @@ export default function D3ProjectAnalytics({ lang }: D3ProjectAnalyticsProps) {
     <div
       style={{
         padding: '1.5rem 1.75rem',
-        borderRadius: '24px',
+        borderRadius: '16px',
         background: 'var(--bg-card)',
-        border: '1px solid var(--border-strong)',
-        backdropFilter: 'blur(16px)',
-        boxShadow: 'var(--shadow-md)',
+        border: '1px solid var(--border)',
+        boxShadow: 'var(--shadow-sm)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
